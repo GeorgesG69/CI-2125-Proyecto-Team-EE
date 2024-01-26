@@ -1,1 +1,4 @@
-print("qlq")
+def Juan():
+    print("qlq")
+
+Juan()
