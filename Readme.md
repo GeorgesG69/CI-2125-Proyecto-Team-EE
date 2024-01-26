@@ -1,1 +1,1 @@
-hola yolsh
+print("Tengo hambre.")
