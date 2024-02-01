@@ -16,7 +16,7 @@ def main(page: ft.Page):
         ])], alignment=MainAxisAlignment.CENTER)
     
     SelColores = ft.Row(alignment=MainAxisAlignment.CENTER)
-    Colores = ft.Row(alignment=ft.MainAxisAlignment.CENTER)
+    Colores = ft.Row(expand=True)
 
     Color_0 = "#000000"  # Negro
     Color_1 = "#883c00"  # Marrón
@@ -30,19 +30,28 @@ def main(page: ft.Page):
     Color_9 = "#ffffff"  # Blanco
     Color_10 = "#958000" # Dorado
 
+    # Bandas
+
+    B_1 = ft.Container(bgcolor="#ffffff", width=25, height=175, border=ft.border.all(5, "#000000"), padding=10)
+    B_2 = ft.Container(bgcolor="#ffffff", width=25, height=175, border=ft.border.all(5, "#000000"), padding=10)
+    B_3 = ft.Container(bgcolor="#ffffff", width=25, height=175, border=ft.border.all(5, "#000000"), padding=10)
+    B_4 = ft.Container(bgcolor="#ffffff", width=25, height=175, border=ft.border.all(5, "#000000"), padding=10)
+    B_5 = ft.Container(bgcolor="#ffffff", width=25, height=175, border=ft.border.all(5, "#000000"), padding=10)
+    B_6 = ft.Container(bgcolor="#ffffff", width=25, height=175, border=ft.border.all(5, "#000000"), padding=10)
+
 
     def Resistor(e):
         if e.control.value == "1":
 
             SelColores.controls = [S1, S2, ft.VerticalDivider(width=50), SMultiplicador_3]
-            IMG_R.scale = ft.transform.Scale(scale=1.25)
+            #IMG_R.scale = ft.transform.Scale(scale=1.1)
 
-            Colores.controls = [ft.VerticalDivider(width=180),
-                                ft.Container(bgcolor="#ffffff", width=25, height=172, alignment=ft.alignment.Alignment(0,0), margin=margin.symmetric(vertical=1)),
-                                ft.VerticalDivider(width=55),
-                                ft.Container(bgcolor="#ffffff", width=25, height=172, alignment=ft.alignment.Alignment(0,0), margin=margin.symmetric(vertical=1)),
-                                ft.VerticalDivider(width=140),
-                                ft.Container(bgcolor="#ffffff", width=25, height=172, alignment=ft.alignment.Alignment(0,0), margin=margin.symmetric(vertical=1))
+            Colores.controls = [ft.VerticalDivider(width=160, opacity=0),
+                                B_1,
+                                ft.VerticalDivider(width=55, opacity=0),
+                                B_2,
+                                ft.VerticalDivider(width=140, opacity=0),
+                                B_3
                                 ]
             
             page.update()
@@ -50,22 +59,21 @@ def main(page: ft.Page):
         elif e.control.value == "2":
 
             SelColores.controls = [S1, S2, SMultiplicador_4, ft.VerticalDivider(width=50), STolerancia]
-            IMG_R.scale = ft.transform.Scale(scale=1.25)
+            #IMG_R.scale = ft.transform.Scale(scale=1.1)
                         
             page.update()
 
         elif e.control.value == "3":
 
             SelColores.controls = [S1, S2, S3, SMultiplicador_4, ft.VerticalDivider(width=10), STolerancia]
-            IMG_R.scale = ft.transform.Scale(scale=1.25)
+            #IMG_R.scale = ft.transform.Scale(scale=1.1
             
-
             page.update()
 
         elif e.control.value == "4":
             
             SelColores.controls = [S1, S2, S3, SMultiplicador_4, ft.VerticalDivider(width=5), STolerancia, STCR]
-            IMG_R.scale = ft.transform.Scale(scale=1.25)
+            #IMG_R.scale = ft.transform.Scale(scale=1.1)
 
             page.update()
     
@@ -180,13 +188,15 @@ def main(page: ft.Page):
 
             ], width=60, label="TCR", bgcolor="#ffffff")
      
-    IMG_R = ft.Image(src="Resistor 2.png", animate_scale=ft.animation.Animation(600, ft.AnimationCurve.BOUNCE_OUT))
+    IMG_R = ft.Image(src="Resistor 2.png", scale=1.1)
     Imagen = ft.Row(controls=[ft.Stack(controls=[
-
-        IMG_R,
-        Colores
         
-    ])], alignment=MainAxisAlignment.CENTER)
+        IMG_R,
+        
+        Colores,
+        
+        
+    ],)], alignment=MainAxisAlignment.CENTER)
             
             
         
