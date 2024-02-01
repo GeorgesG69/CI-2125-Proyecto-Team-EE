@@ -32,25 +32,24 @@ def main(page: ft.Page):
 
     # Bandas
 
-    B_1 = ft.Container(bgcolor="#ffffff", width=25, height=170, border=ft.border.all(5, "#000000"), )
-    B_2 = ft.Container(bgcolor="#ffffff", width=25, height=170, border=ft.border.all(5, "#000000"), )
-    B_3 = ft.Container(bgcolor="#ffffff", width=25, height=170, border=ft.border.all(5, "#000000"), )
-    B_4 = ft.Container(bgcolor="#ffffff", width=25, height=170, border=ft.border.all(5, "#000000"), )
-    B_5 = ft.Container(bgcolor="#ffffff", width=25, height=170, border=ft.border.all(5, "#000000"), )
-    B_6 = ft.Container(bgcolor="#ffffff", width=25, height=170, border=ft.border.all(5, "#000000"), )
+    B_1 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    B_2 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    B_3 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    B_4 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    B_5 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    B_6 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
 
 
     def Resistor(e):
         if e.control.value == "1":
 
             SelColores.controls = [S1, S2, ft.VerticalDivider(width=50), SMultiplicador_3]
-            #IMG_R.scale = ft.transform.Scale(scale=1.1)
-
+            
             Colores.controls = [ft.VerticalDivider(width=160, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=55, opacity=0),
                                 B_2,
-                                ft.VerticalDivider(width=140, opacity=0),
+                                ft.VerticalDivider(width=130, opacity=0),
                                 B_3
                                 ]
             
@@ -59,15 +58,14 @@ def main(page: ft.Page):
         elif e.control.value == "2":
 
             SelColores.controls = [S1, S2, SMultiplicador_4, ft.VerticalDivider(width=50), STolerancia]
-            #IMG_R.scale = ft.transform.Scale(scale=1.1)
-
-            Colores.controls = [ft.VerticalDivider(width=90, opacity=0),
+            
+            Colores.controls = [ft.VerticalDivider(width=120, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
                                 B_2,
-                                ft.VerticalDivider(width=90, opacity=0),
+                                ft.VerticalDivider(width=70, opacity=0),
                                 B_3,
-                                ft.VerticalDivider(width=155, opacity=0),
+                                ft.VerticalDivider(width=120, opacity=0),
                                 B_4
                                 ]
                         
@@ -76,14 +74,38 @@ def main(page: ft.Page):
         elif e.control.value == "3":
 
             SelColores.controls = [S1, S2, S3, SMultiplicador_4, ft.VerticalDivider(width=10), STolerancia]
-            #IMG_R.scale = ft.transform.Scale(scale=1.1
+            
+            Colores.controls = [ft.VerticalDivider(width=80, opacity=0),
+                                B_1,
+                                ft.VerticalDivider(width=60, opacity=0),
+                                B_2,
+                                ft.VerticalDivider(width=60, opacity=0),
+                                B_3,
+                                ft.VerticalDivider(width=60, opacity=0),
+                                B_4,
+                                ft.VerticalDivider(width=120, opacity=0),
+                                B_5
+                                ]
             
             page.update()
 
         elif e.control.value == "4":
             
             SelColores.controls = [S1, S2, S3, SMultiplicador_4, ft.VerticalDivider(width=5), STolerancia, STCR]
-            #IMG_R.scale = ft.transform.Scale(scale=1.1)
+            
+            Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
+                                B_1,
+                                ft.VerticalDivider(width=60, opacity=0),
+                                B_2,
+                                ft.VerticalDivider(width=60, opacity=0),
+                                B_3,
+                                ft.VerticalDivider(width=60, opacity=0),
+                                B_4,
+                                ft.VerticalDivider(width=100, opacity=0),
+                                B_5,
+                                ft.VerticalDivider(width=40, opacity=0),
+                                B_6
+                                ]
 
             page.update()
     
@@ -236,9 +258,9 @@ def main(page: ft.Page):
     
     
     page.add(Titulo(), SelColores)
-    page.add(ft.Divider(opacity=0, height=50))
+    page.add(ft.Divider(opacity=0, height=25))
     page.add(Imagen)
-    page.add(ft.Divider(opacity=0, height=50))
+    page.add(ft.Divider(opacity=0, height=25))
     page.add(Selector)
     
     page.add(Colores)
