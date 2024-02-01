@@ -16,7 +16,7 @@ def main(page: ft.Page):
         ])], alignment=MainAxisAlignment.CENTER)
     
     SelColores = ft.Row(alignment=MainAxisAlignment.CENTER)
-    Colores = ft.Row(expand=True)
+    Colores = ft.Row(expand=False, scale=1.25)
 
     Color_0 = "#000000"  # Negro
     Color_1 = "#883c00"  # Marrón
@@ -32,12 +32,12 @@ def main(page: ft.Page):
 
     # Bandas
 
-    B_1 = ft.Container(bgcolor="#ffffff", width=25, height=175, border=ft.border.all(5, "#000000"), padding=10)
-    B_2 = ft.Container(bgcolor="#ffffff", width=25, height=175, border=ft.border.all(5, "#000000"), padding=10)
-    B_3 = ft.Container(bgcolor="#ffffff", width=25, height=175, border=ft.border.all(5, "#000000"), padding=10)
-    B_4 = ft.Container(bgcolor="#ffffff", width=25, height=175, border=ft.border.all(5, "#000000"), padding=10)
-    B_5 = ft.Container(bgcolor="#ffffff", width=25, height=175, border=ft.border.all(5, "#000000"), padding=10)
-    B_6 = ft.Container(bgcolor="#ffffff", width=25, height=175, border=ft.border.all(5, "#000000"), padding=10)
+    B_1 = ft.Container(bgcolor="#ffffff", width=25, height=170, border=ft.border.all(5, "#000000"), )
+    B_2 = ft.Container(bgcolor="#ffffff", width=25, height=170, border=ft.border.all(5, "#000000"), )
+    B_3 = ft.Container(bgcolor="#ffffff", width=25, height=170, border=ft.border.all(5, "#000000"), )
+    B_4 = ft.Container(bgcolor="#ffffff", width=25, height=170, border=ft.border.all(5, "#000000"), )
+    B_5 = ft.Container(bgcolor="#ffffff", width=25, height=170, border=ft.border.all(5, "#000000"), )
+    B_6 = ft.Container(bgcolor="#ffffff", width=25, height=170, border=ft.border.all(5, "#000000"), )
 
 
     def Resistor(e):
@@ -60,6 +60,16 @@ def main(page: ft.Page):
 
             SelColores.controls = [S1, S2, SMultiplicador_4, ft.VerticalDivider(width=50), STolerancia]
             #IMG_R.scale = ft.transform.Scale(scale=1.1)
+
+            Colores.controls = [ft.VerticalDivider(width=90, opacity=0),
+                                B_1,
+                                ft.VerticalDivider(width=60, opacity=0),
+                                B_2,
+                                ft.VerticalDivider(width=90, opacity=0),
+                                B_3,
+                                ft.VerticalDivider(width=155, opacity=0),
+                                B_4
+                                ]
                         
             page.update()
 
@@ -188,7 +198,7 @@ def main(page: ft.Page):
 
             ], width=60, label="TCR", bgcolor="#ffffff")
      
-    IMG_R = ft.Image(src="Resistor 2.png", scale=1.1)
+    IMG_R = ft.Image(src="Resistor 2.png", scale=1.25)
     Imagen = ft.Row(controls=[ft.Stack(controls=[
         
         IMG_R,
@@ -226,9 +236,9 @@ def main(page: ft.Page):
     
     
     page.add(Titulo(), SelColores)
-    page.add(ft.Divider(opacity=0))
+    page.add(ft.Divider(opacity=0, height=50))
     page.add(Imagen)
-    page.add(ft.Divider(opacity=0))
+    page.add(ft.Divider(opacity=0, height=50))
     page.add(Selector)
     
     page.add(Colores)
