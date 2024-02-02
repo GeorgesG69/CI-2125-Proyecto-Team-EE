@@ -42,14 +42,14 @@ def main(page: ft.Page):
     B_6 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
 
     # Función para cambiar la cantidad de bandas
-    def Resistor(e):
+    def Bandas_Resistor(e):
 
         # Los valores que aparecen en cada condicional, es decir "e.control.value" son introducidos
         # por los selectores en forma de punto. Los que se guardan en la variable "Selector".
         # "e" es la letra que representa el "evento" en la aplicación, específicamente en esta función
         # se trabaja con los eventos que envian los selectores de punto.
 
-        # Cada punto agrega la cantidad de bandas sobre el dibujo del resistor. 
+        # Cada punto agrega la cantidad de bandas sobre el dibujo del Bandas_Resistor. 
         # Es lo que hace cada condicional a continuación:
 
         if e.control.value == "1": 
@@ -265,7 +265,7 @@ def main(page: ft.Page):
         ft.Text(value=f"{SBandas}")])
     
     
-    , on_change=Resistor)], alignment=MainAxisAlignment.CENTER)
+    , on_change=Bandas_Resistor)], alignment=MainAxisAlignment.CENTER)
     
     
     # Acá se añaden los elementos a la interfaz. 
