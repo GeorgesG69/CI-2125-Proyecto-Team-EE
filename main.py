@@ -31,6 +31,7 @@ def main(page: ft.Page):
     C_Gris = "#737373"      # Gris
     C_Blanco = "#ffffff"    # Blanco
     C_Dorado = "#958000"    # Dorado
+    C_Plateado = "#b4b4b4"  # Plateado
 
     # Bandas
 
@@ -38,8 +39,10 @@ def main(page: ft.Page):
     B_2 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
     B_3 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
     B_4 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
-    B_5 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
-    B_6 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    BM_3 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    BM_4 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    B_T = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    B_TCR = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
 
     # Función para cambiar la cantidad de bandas
     def Bandas_Resistor(e):
@@ -61,7 +64,7 @@ def main(page: ft.Page):
                                 ft.VerticalDivider(width=55, opacity=0),
                                 B_2,
                                 ft.VerticalDivider(width=130, opacity=0),
-                                B_3
+                                BM_3
                                 ]
             
             page.update()
@@ -75,9 +78,9 @@ def main(page: ft.Page):
                                 ft.VerticalDivider(width=60, opacity=0),
                                 B_2,
                                 ft.VerticalDivider(width=70, opacity=0),
-                                B_3,
+                                BM_4,
                                 ft.VerticalDivider(width=120, opacity=0),
-                                B_4
+                                B_T
                                 ]
                         
             page.update()
@@ -93,9 +96,9 @@ def main(page: ft.Page):
                                 ft.VerticalDivider(width=60, opacity=0),
                                 B_3,
                                 ft.VerticalDivider(width=60, opacity=0),
-                                B_4,
+                                BM_4,
                                 ft.VerticalDivider(width=120, opacity=0),
-                                B_5
+                                B_T
                                 ]
             
             page.update()
@@ -111,126 +114,143 @@ def main(page: ft.Page):
                                 ft.VerticalDivider(width=60, opacity=0),
                                 B_3,
                                 ft.VerticalDivider(width=60, opacity=0),
-                                B_4,
+                                BM_4,
                                 ft.VerticalDivider(width=100, opacity=0),
-                                B_5,
+                                B_T,
                                 ft.VerticalDivider(width=40, opacity=0),
-                                B_6
+                                B_TCR
                                 ]
 
             page.update()
+
+    def Cambiar_Colores(e):
+        B_1.bgcolor = S1.value
+        B_2.bgcolor = S2.value
+        BM_3.bgcolor = SMultiplicador_3.value
+
+        BM_4.bgcolor = SMultiplicador_4.value
+        B_T.bgcolor = STolerancia.value
+
+        B_3.bgcolor = S3.value
+        B_TCR.bgcolor = STCR.value
+
+        #B_4.bgcolor = 
+        
+        page.update()
     
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
 
     S1 = ft.Dropdown(options=[
 
-                ft.dropdown.Option("⬜"),
-                ft.dropdown.Option("🟫"),
-                ft.dropdown.Option("🟥"),
-                ft.dropdown.Option("🟧"),
-                ft.dropdown.Option("🟨"),
-                ft.dropdown.Option("🟩"),
-                ft.dropdown.Option("🟦"),
-                ft.dropdown.Option("🟪"),
-                ft.dropdown.Option("🌫️"),
-                ft.dropdown.Option("⬛")
+                ft.dropdown.Option(text="⬜", key=C_Negro),
+                ft.dropdown.Option(text="🟫", key=C_Marron),
+                ft.dropdown.Option(text="🟥", key=C_Rojo),
+                ft.dropdown.Option(text="🟧", key=C_Naranja),
+                ft.dropdown.Option(text="🟨", key=C_Amarillo),
+                ft.dropdown.Option(text="🟩", key=C_Verde),
+                ft.dropdown.Option(text="🟦", key=C_Azul),
+                ft.dropdown.Option(text="🟪", key=C_Violeta),
+                ft.dropdown.Option(text="🌫️", key=C_Gris),
+                ft.dropdown.Option(text="⬛", key=C_Blanco)
 
-            ], width=100, label="Color 1", bgcolor="#ffffff")
+            ], width=100, label="Color 1", bgcolor="#ffffff", on_change=Cambiar_Colores)
     
     S2 = ft.Dropdown(options=[
 
-                ft.dropdown.Option("⬜"),
-                ft.dropdown.Option("🟫"),
-                ft.dropdown.Option("🟥"),
-                ft.dropdown.Option("🟧"),
-                ft.dropdown.Option("🟨"),
-                ft.dropdown.Option("🟩"),
-                ft.dropdown.Option("🟦"),
-                ft.dropdown.Option("🟪"),
-                ft.dropdown.Option("🌫️"),
-                ft.dropdown.Option("⬛")
+                ft.dropdown.Option(text="⬜", key=C_Negro),
+                ft.dropdown.Option(text="🟫", key=C_Marron),
+                ft.dropdown.Option(text="🟥", key=C_Rojo),
+                ft.dropdown.Option(text="🟧", key=C_Naranja),
+                ft.dropdown.Option(text="🟨", key=C_Amarillo),
+                ft.dropdown.Option(text="🟩", key=C_Verde),
+                ft.dropdown.Option(text="🟦", key=C_Azul),
+                ft.dropdown.Option(text="🟪", key=C_Violeta),
+                ft.dropdown.Option(text="🌫️", key=C_Gris),
+                ft.dropdown.Option(text="⬛", key=C_Blanco)
 
-            ], width=100, label="Color 2", bgcolor="#ffffff")
+            ], width=100, label="Color 2", bgcolor="#ffffff", on_change=Cambiar_Colores)
     
     S3 = ft.Dropdown(options=[
 
-                ft.dropdown.Option("⬜"),
-                ft.dropdown.Option("🟫"),
-                ft.dropdown.Option("🟥"),
-                ft.dropdown.Option("🟧"),
-                ft.dropdown.Option("🟨"),
-                ft.dropdown.Option("🟩"),
-                ft.dropdown.Option("🟦"),
-                ft.dropdown.Option("🟪"),
-                ft.dropdown.Option("🌫️"),
-                ft.dropdown.Option("⬛")
+                ft.dropdown.Option(text="⬜", key=C_Negro),
+                ft.dropdown.Option(text="🟫", key=C_Marron),
+                ft.dropdown.Option(text="🟥", key=C_Rojo),
+                ft.dropdown.Option(text="🟧", key=C_Naranja),
+                ft.dropdown.Option(text="🟨", key=C_Amarillo),
+                ft.dropdown.Option(text="🟩", key=C_Verde),
+                ft.dropdown.Option(text="🟦", key=C_Azul),
+                ft.dropdown.Option(text="🟪", key=C_Violeta),
+                ft.dropdown.Option(text="🌫️", key=C_Gris),
+                ft.dropdown.Option(text="⬛", key=C_Blanco)
 
-            ], width=100, label="Color 3", bgcolor="#ffffff")
+            ], width=100, label="Color 3", bgcolor="#ffffff", on_change=Cambiar_Colores)
     
     SMultiplicador_3 = ft.Dropdown(options=[
 
-                ft.dropdown.Option("⬜"),
-                ft.dropdown.Option("🟫"),
-                ft.dropdown.Option("🟥"),
-                ft.dropdown.Option("🟧"),
-                ft.dropdown.Option("🟨"),
-                ft.dropdown.Option("🟩"),
-                ft.dropdown.Option("🟦"),
-                ft.dropdown.Option("🟪"),
-                ft.dropdown.Option("🌫️"),
-                ft.dropdown.Option("⬛"),
+                ft.dropdown.Option(text="⬜", key=C_Negro),
+                ft.dropdown.Option(text="🟫", key=C_Marron),
+                ft.dropdown.Option(text="🟥", key=C_Rojo),
+                ft.dropdown.Option(text="🟧", key=C_Naranja),
+                ft.dropdown.Option(text="🟨", key=C_Amarillo),
+                ft.dropdown.Option(text="🟩", key=C_Verde),
+                ft.dropdown.Option(text="🟦", key=C_Azul),
+                ft.dropdown.Option(text="🟪", key=C_Violeta),
+                ft.dropdown.Option(text="🌫️", key=C_Gris),
+                ft.dropdown.Option(text="⬛", key=C_Blanco)
                 
 
-            ], width=150, label="Multiplicador", bgcolor="#ffffff")
+            ], width=150, label="Multiplicador", bgcolor="#ffffff", on_change=Cambiar_Colores)
     
     SMultiplicador_4 = ft.Dropdown(options=[
 
-                ft.dropdown.Option("⬜"),
-                ft.dropdown.Option("🟫"),
-                ft.dropdown.Option("🟥"),
-                ft.dropdown.Option("🟧"),
-                ft.dropdown.Option("🟨"),
-                ft.dropdown.Option("🟩"),
-                ft.dropdown.Option("🟦"),
-                ft.dropdown.Option("🟪"),
-                ft.dropdown.Option("🌫️"),
-                ft.dropdown.Option("⬛"),
-                ft.dropdown.Option("Dorado"),
-                ft.dropdown.Option("Plateado")
+                ft.dropdown.Option(text="⬜", key=C_Negro),
+                ft.dropdown.Option(text="🟫", key=C_Marron),
+                ft.dropdown.Option(text="🟥", key=C_Rojo),
+                ft.dropdown.Option(text="🟧", key=C_Naranja),
+                ft.dropdown.Option(text="🟨", key=C_Amarillo),
+                ft.dropdown.Option(text="🟩", key=C_Verde),
+                ft.dropdown.Option(text="🟦", key=C_Azul),
+                ft.dropdown.Option(text="🟪", key=C_Violeta),
+                ft.dropdown.Option(text="🌫️", key=C_Gris),
+                ft.dropdown.Option(text="⬛", key=C_Blanco),
+                ft.dropdown.Option(text="Dorado", key=C_Dorado),
+                ft.dropdown.Option(text="Plateado", key=C_Plateado)
 
-            ], width=150, label="Multiplicador", bgcolor="#ffffff")
+            ], width=150, label="Multiplicador", bgcolor="#ffffff", on_change=Cambiar_Colores)
     
     STolerancia = ft.Dropdown(options=[
 
-                ft.dropdown.Option("🟫"),
-                ft.dropdown.Option("🟥"),
-                ft.dropdown.Option("🟧"),
-                ft.dropdown.Option("🟨"),
-                ft.dropdown.Option("🟩"),
-                ft.dropdown.Option("🟦"),
-                ft.dropdown.Option("🟪"),
-                ft.dropdown.Option("🌫️"),
-                ft.dropdown.Option("⬛"),
-                ft.dropdown.Option("Dorado"),
-                ft.dropdown.Option("Plateado")
+                ft.dropdown.Option(text="⬜", key=C_Negro),
+                ft.dropdown.Option(text="🟫", key=C_Marron),
+                ft.dropdown.Option(text="🟥", key=C_Rojo),
+                ft.dropdown.Option(text="🟧", key=C_Naranja),
+                ft.dropdown.Option(text="🟨", key=C_Amarillo),
+                ft.dropdown.Option(text="🟩", key=C_Verde),
+                ft.dropdown.Option(text="🟦", key=C_Azul),
+                ft.dropdown.Option(text="🟪", key=C_Violeta),
+                ft.dropdown.Option(text="🌫️", key=C_Gris),
+                ft.dropdown.Option(text="⬛", key=C_Blanco),
+                ft.dropdown.Option(text="Dorado", key=C_Dorado),
+                ft.dropdown.Option(text="Plateado", key=C_Plateado)
 
-            ], width=120, label="Tolerancia", bgcolor="#ffffff")
+            ], width=120, label="Tolerancia", bgcolor="#ffffff", on_change=Cambiar_Colores)
     
     STCR = ft.Dropdown(options=[
 
-                ft.dropdown.Option("⬜"),
-                ft.dropdown.Option("🟫"),
-                ft.dropdown.Option("🟥"),
-                ft.dropdown.Option("🟧"),
-                ft.dropdown.Option("🟨"),
-                ft.dropdown.Option("🟩"),
-                ft.dropdown.Option("🟦"),
-                ft.dropdown.Option("🟪"),
-                ft.dropdown.Option("🌫️"),
+                ft.dropdown.Option(text="⬜", key=C_Negro),
+                ft.dropdown.Option(text="🟫", key=C_Marron),
+                ft.dropdown.Option(text="🟥", key=C_Rojo),
+                ft.dropdown.Option(text="🟧", key=C_Naranja),
+                ft.dropdown.Option(text="🟨", key=C_Amarillo),
+                ft.dropdown.Option(text="🟩", key=C_Verde),
+                ft.dropdown.Option(text="🟦", key=C_Azul),
+                ft.dropdown.Option(text="🟪", key=C_Violeta),
+                ft.dropdown.Option(text="🌫️", key=C_Gris),
+                ft.dropdown.Option(text="⬛", key=C_Blanco)
                 
 
-            ], width=60, label="TCR", bgcolor="#ffffff")
+            ], width=60, label="TCR", bgcolor="#ffffff", on_change=Cambiar_Colores)
      
     IMG_R = ft.Image(src="Resistor 2.png", scale=1.25) # Dibujo del resistor
 
