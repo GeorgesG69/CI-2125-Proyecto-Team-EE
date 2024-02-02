@@ -20,17 +20,17 @@ def main(page: ft.Page):
 
     # Colores con sus códigos
 
-    Color_0 = "#000000"  # Negro
-    Color_1 = "#883c00"  # Marrón
-    Color_2 = "#ff0000"  # Rojo
-    Color_3 = "#ff872e"  # Naranja
-    Color_4 = "#f3e800"  # Amarillo
-    Color_5 = "#28a700"  # Verde
-    Color_6 = "#009bb6"  # Azul
-    Color_7 = "#8200e1"  # Violeta
-    Color_8 = "#737373"  # Gris
-    Color_9 = "#ffffff"  # Blanco
-    Color_10 = "#958000" # Dorado
+    C_Negro = "#000000"     # Negro
+    C_Marron = "#883c00"    # Marrón
+    C_Rojo = "#ff0000"      # Rojo
+    C_Naranja = "#ff872e"   # Naranja
+    C_Amarillo = "#f3e800"  # Amarillo
+    C_Verde = "#28a700"     # Verde
+    C_Azul = "#009bb6"      # Azul
+    C_Violeta = "#8200e1"   # Violeta
+    C_Gris = "#737373"      # Gris
+    C_Blanco = "#ffffff"    # Blanco
+    C_Dorado = "#958000"    # Dorado
 
     # Bandas
 
