@@ -137,6 +137,10 @@ def main(page: ft.Page):
         #B_4.bgcolor = 
         
         page.update()
+
+    Salida_de_valor = ft.Text()
+    
+    no_c = ft.Row(controls=[ft.Text(value=["resultado", Salida_de_valor])])
     
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
@@ -297,5 +301,6 @@ def main(page: ft.Page):
     page.add(Selector)
     
     page.add(Colores)
+    page.add(no_c)
 
 ft.app(target=main) # Arranque de la aplicación
