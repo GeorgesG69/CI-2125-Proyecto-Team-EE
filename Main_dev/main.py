@@ -68,6 +68,9 @@ def main(page: ft.Page):
                                 ]
             
             page.update()
+
+
+        
             
         elif e.control.value == "2":
 
