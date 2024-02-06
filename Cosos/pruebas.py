@@ -190,22 +190,6 @@ def main(page: ft.Page):
 
         page.update()
     
-    
-    def Cambiar_Colores(e):
-        
-        B_2.bgcolor = S2.value
-        BM_3.bgcolor = SMultiplicador_3.value
-
-        BM_4.bgcolor = SMultiplicador_4.value
-        B_T.bgcolor = STolerancia.value
-
-        B_3.bgcolor = S3.value
-        B_TCR.bgcolor = STCR.value
-
-        print("A")
-        
-        page.update()
-
     Salida_de_valor = ft.Text()
     
     def Resultado():
