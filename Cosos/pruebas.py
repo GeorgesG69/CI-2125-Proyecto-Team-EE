@@ -57,7 +57,12 @@ def main(page: ft.Page):
 
         if e.control.value == "1": 
 
-            Menu.controls = [S1, S2, ft.VerticalDivider(width=50), SMultiplicador_3]
+            Menu.controls = [ft.VerticalDivider(width=415, opacity=0), 
+                             S1, 
+                             ft.VerticalDivider(width=50, opacity=0), 
+                             S2, 
+                             ft.VerticalDivider(width=120, opacity=0), 
+                             SMultiplicador_3]
             
             Colores.controls = [ft.VerticalDivider(width=160, opacity=0),
                                 B_1,
@@ -71,7 +76,14 @@ def main(page: ft.Page):
             
         elif e.control.value == "2":
 
-            Menu.controls = [S1, S2, SMultiplicador_4, ft.VerticalDivider(width=50), STolerancia]
+            Menu.controls = [ft.VerticalDivider(width=360, opacity=0),
+                             S1,
+                             ft.VerticalDivider(width=50, opacity=0), 
+                             S2,
+                             ft.VerticalDivider(width=50, opacity=0), 
+                             SMultiplicador_4, 
+                             ft.VerticalDivider(width=100, opacity=0), 
+                             STolerancia]
             
             Colores.controls = [ft.VerticalDivider(width=120, opacity=0),
                                 B_1,
@@ -87,7 +99,16 @@ def main(page: ft.Page):
 
         elif e.control.value == "3":
 
-            Menu.controls = [S1, S2, S3, SMultiplicador_4, ft.VerticalDivider(width=10), STolerancia]
+            Menu.controls = [ft.VerticalDivider(width=300, opacity=0),
+                             S1,
+                             ft.VerticalDivider(width=60, opacity=0), 
+                             S2,
+                             ft.VerticalDivider(width=60, opacity=0), 
+                             S3,
+                             ft.VerticalDivider(width=20, opacity=0),
+                             SMultiplicador_4, 
+                             ft.VerticalDivider(width=110, opacity=0), 
+                             STolerancia]
             
             Colores.controls = [ft.VerticalDivider(width=80, opacity=0),
                                 B_1,
@@ -105,7 +126,18 @@ def main(page: ft.Page):
 
         elif e.control.value == "4":
             
-            Menu.controls = [S1, S2, S3, SMultiplicador_4, ft.VerticalDivider(width=5), STolerancia, STCR]
+            Menu.controls = [ft.VerticalDivider(width=280, opacity=0),
+                             S1,
+                             ft.VerticalDivider(width=55, opacity=0), 
+                             S2, 
+                             ft.VerticalDivider(width=55, opacity=0),
+                             S3, 
+                             ft.VerticalDivider(width=50, opacity=0),
+                             SMultiplicador_4, 
+                             ft.VerticalDivider(width=65, opacity=0), 
+                             STolerancia, 
+                             ft.VerticalDivider(width=35, opacity=0),
+                             STCR]
             
             Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
                                 B_1,
@@ -176,7 +208,14 @@ def main(page: ft.Page):
 
     Salida_de_valor = ft.Text()
     
-    no_c = ft.Row(controls=[ft.Text(value="resultado"), Salida_de_valor])
+    def Resultado():
+
+        Resul = ft.Text(value="Resultados", size=30) # Título de los resultados
+
+        return ft.Row(controls=[Column(controls=[
+
+            Resul,
+        ])], alignment=MainAxisAlignment.CENTER)
     
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
@@ -610,8 +649,8 @@ def main(page: ft.Page):
     page.add(Imagen)
     page.add(ft.Divider(opacity=0, height=25))
     page.add(Selector)
+    page.add(Resultado())
     
-    #page.add(Colores)
-    #page.add(no_c)
+
 
 ft.app(target=main) # Arranque de la aplicación
