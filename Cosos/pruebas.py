@@ -145,20 +145,10 @@ def main(page: ft.Page):
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
 
-    S1 = ft.Dropdown(options=[
+    Menú = ft.MenuBar(controls=[ft.Text(value="Selecciones la cantidad de bandas", expand=True, text_align=TextAlign.CENTER, width=page.width)], style=MenuStyle(), expand=True)
 
-                ft.dropdown.Option(text=ft.icons.SQUARE, key=C_Negro),
-                ft.dropdown.Option(text="🟫", key=C_Marron),
-                ft.dropdown.Option(text="🟥", key=C_Rojo),
-                ft.dropdown.Option(text="🟧", key=C_Naranja),
-                ft.dropdown.Option(text="🟨", key=C_Amarillo),
-                ft.dropdown.Option(text="🟩", key=C_Verde),
-                ft.dropdown.Option(text="🟦", key=C_Azul),
-                ft.dropdown.Option(text="🟪", key=C_Violeta),
-                ft.dropdown.Option(text="🌫️", key=C_Gris),
-                ft.dropdown.Option(text="⬛", key=C_Blanco)
-
-            ], width=100, label="Color 1", bgcolor="#ffffff", on_change=Cambiar_Colores)
+    S1 = ft.SubmenuButton(controls=[ft.ElevatedButton(bgcolor=C_Negro), 
+                                    ft.ElevatedButton(bgcolor=C_Marron)], content=ft.Text("Color 1"))
     
     S2 = ft.Dropdown(options=[
 
@@ -295,7 +285,7 @@ def main(page: ft.Page):
     # Acá se añaden los elementos a la interfaz. 
 
     page.add(Titulo(), SelColores)
-    page.add(ft.Divider(opacity=0, height=25))
+    page.add(ft.Divider(opacity=0, height=25), ft.Row(controls=[Menú], alignment=MainAxisAlignment.CENTER), ft.Divider(opacity=0, height=25))
     page.add(Imagen)
     page.add(ft.Divider(opacity=0, height=25))
     page.add(Selector)
