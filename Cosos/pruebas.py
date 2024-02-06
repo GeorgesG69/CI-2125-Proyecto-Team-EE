@@ -1,6 +1,5 @@
 import flet as ft
 from flet import *
-
 from colorama import Back, Fore, init
 init()
 
@@ -146,7 +145,20 @@ def main(page: ft.Page):
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
 
-    S1 = ft.PopupMenuButton(content=ft.ElevatedButton(bgcolor="#000000"), key="Color 1")
+    S1 = ft.Dropdown(options=[
+
+                ft.dropdown.Option(text=ft.icons.SQUARE, key=C_Negro),
+                ft.dropdown.Option(text="🟫", key=C_Marron),
+                ft.dropdown.Option(text="🟥", key=C_Rojo),
+                ft.dropdown.Option(text="🟧", key=C_Naranja),
+                ft.dropdown.Option(text="🟨", key=C_Amarillo),
+                ft.dropdown.Option(text="🟩", key=C_Verde),
+                ft.dropdown.Option(text="🟦", key=C_Azul),
+                ft.dropdown.Option(text="🟪", key=C_Violeta),
+                ft.dropdown.Option(text="🌫️", key=C_Gris),
+                ft.dropdown.Option(text="⬛", key=C_Blanco)
+
+            ], width=100, label="Color 1", bgcolor="#ffffff", on_change=Cambiar_Colores)
     
     S2 = ft.Dropdown(options=[
 
@@ -289,6 +301,6 @@ def main(page: ft.Page):
     page.add(Selector)
     
     #page.add(Colores)
-    page.add(no_c)
+    #page.add(no_c)
 
 ft.app(target=main) # Arranque de la aplicación
