@@ -41,7 +41,7 @@ def main(page: ft.Page):
                 on_hover=handle_on_hover,
                 controls=[
                     ft.MenuItemButton(
-                        content=ft.Text("About"),
+                        content=ft.Text("pinga"),
                         leading=ft.Icon(ft.icons.INFO),
                         style=ft.ButtonStyle(bgcolor={ft.MaterialState.HOVERED: ft.colors.GREEN_100}),
                         on_click=handle_menu_item_click
