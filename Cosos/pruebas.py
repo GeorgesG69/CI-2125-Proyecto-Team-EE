@@ -57,7 +57,7 @@ def main(page: ft.Page):
 
         if e.control.value == "1": 
 
-            SelColores.controls = [S1, S2, ft.VerticalDivider(width=50), SMultiplicador_3]
+            Menu.controls = [S1, S2, ft.VerticalDivider(width=50), SMultiplicador_3]
             
             Colores.controls = [ft.VerticalDivider(width=160, opacity=0),
                                 B_1,
@@ -124,7 +124,7 @@ def main(page: ft.Page):
             page.update()
 
     def Cambiar_Colores(e):
-        B_1.bgcolor = S1.value
+        B_1.bgcolor = S1.control.content.key
         B_2.bgcolor = S2.value
         BM_3.bgcolor = SMultiplicador_3.value
 
@@ -134,7 +134,7 @@ def main(page: ft.Page):
         B_3.bgcolor = S3.value
         B_TCR.bgcolor = STCR.value
 
-        #B_4.bgcolor = 
+        print("A")
         
         page.update()
 
@@ -145,10 +145,9 @@ def main(page: ft.Page):
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
 
-    Menú = ft.MenuBar(controls=[ft.Text(value="Selecciones la cantidad de bandas", expand=True, text_align=TextAlign.CENTER, width=page.width)], style=MenuStyle(), expand=True)
+    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras")], expand=True)
 
-    S1 = ft.SubmenuButton(controls=[ft.ElevatedButton(bgcolor=C_Negro), 
-                                    ft.ElevatedButton(bgcolor=C_Marron)], content=ft.Text("Color 1"))
+    S1 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.ElevatedButton(bgcolor=C_Negro, key=C_Negro, on_click=Cambiar_Colores))])
     
     S2 = ft.Dropdown(options=[
 
@@ -285,7 +284,7 @@ def main(page: ft.Page):
     # Acá se añaden los elementos a la interfaz. 
 
     page.add(Titulo(), SelColores)
-    page.add(ft.Divider(opacity=0, height=25), ft.Row(controls=[Menú], alignment=MainAxisAlignment.CENTER), ft.Divider(opacity=0, height=25))
+    page.add(ft.Divider(opacity=0, height=25), ft.Row([Menu], alignment=MainAxisAlignment.CENTER))
     page.add(Imagen)
     page.add(ft.Divider(opacity=0, height=25))
     page.add(Selector)
