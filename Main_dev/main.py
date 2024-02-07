@@ -597,7 +597,7 @@ def main(page: ft.Page):
         IMG_R,
         Colores,
         
-    ],)], alignment=MainAxisAlignment.CENTER)
+    ])], alignment=MainAxisAlignment.CENTER)
             
     # Etiquetas de cada selector de punto. Tambien se pueden colocar en la propia función "ft.Radio". Pero preferí ponerla así.
 

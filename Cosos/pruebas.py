@@ -592,7 +592,9 @@ def main(page: ft.Page):
      
     IMG_R = ft.Image(src="Resistor 2.png", scale=1.25) # Dibujo del resistor
 
-    Imagen = ft.Row(controls=[ft.Stack(controls=[      # Fila que contiene un "Stack", un elemento que sirve para poner cosas
+    Img_CV = ft.canvas.Canvas(ft.canvas.Rect())
+
+    Imagen = ft.Row(controls=[ft.Stack(controls=[ft.Divider(height=1),      # Fila que contiene un "Stack", un elemento que sirve para poner cosas
                                                        # encima de otras
         IMG_R,
         Colores,
