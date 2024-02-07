@@ -204,7 +204,7 @@ def main(page: ft.Page):
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
 
-    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
+    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER, size=20, italic=True)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
 
     S1 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
                                                       
@@ -628,8 +628,10 @@ def main(page: ft.Page):
     
     # Acá se añaden los elementos a la interfaz. 
 
-    page.add(Titulo(), SelColores)
-    page.add(ft.Divider(opacity=0, height=25), ft.Row([Menu], alignment=MainAxisAlignment.CENTER), ft.Divider(opacity=0, height=25))
+    page.add(Titulo())
+    page.add(ft.Divider(opacity=0, height=5), 
+             ft.Row([Menu], alignment=MainAxisAlignment.CENTER), 
+             ft.Divider(opacity=0, height=25))
     page.add(Imagen)
     page.add(ft.Divider(opacity=0, height=25))
     page.add(Selector)
