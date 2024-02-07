@@ -639,4 +639,4 @@ def main(page: ft.Page):
     
 
 
-ft.app(target=main) # Arranque de la aplicación
+ft.app(target=main, view=AppView.FLET_APP) # Arranque de la aplicación
