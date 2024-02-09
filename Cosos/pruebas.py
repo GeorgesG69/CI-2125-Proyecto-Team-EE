@@ -193,14 +193,9 @@ def main(page: ft.Page):
     
     Salida_de_valor = ft.Text()
     
-    def Resultado():
+    Resultado = ft.Text(value="Resultados", size=30) # Título de los resultados
 
-        Resul = ft.Text(value="Resultados", size=30) # Título de los resultados
 
-        return ft.Row(controls=[Column(controls=[
-
-            Resul,
-        ])], alignment=MainAxisAlignment.CENTER)
     
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
@@ -637,7 +632,7 @@ def main(page: ft.Page):
     page.add(Imagen)
     page.add(ft.Divider(opacity=0, height=25))
     page.add(Selector)
-    page.add(Resultado())
+    page.add(Resultado)
     
 
 
