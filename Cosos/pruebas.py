@@ -261,52 +261,52 @@ def main(page: ft.Page):
     
     S2 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Negro),
+                                                      style=ft.ButtonStyle(bgcolor=C_Negro[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
                                     ft.MenuItemButton(content=ft.Text(key=C_Marron), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Marron),
+                                                      style=ft.ButtonStyle(bgcolor=C_Marron[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
                                     ft.MenuItemButton(content=ft.Text(key=C_Rojo), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Rojo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Rojo[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
                                     ft.MenuItemButton(content=ft.Text(key=C_Naranja), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Naranja),
+                                                      style=ft.ButtonStyle(bgcolor=C_Naranja[0]),
                                                       on_click=Cambiar_Color_2),
 
                                     ft.MenuItemButton(content=ft.Text(key=C_Amarillo), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo[0]),
                                                       on_click=Cambiar_Color_2),
 
                                     ft.MenuItemButton(content=ft.Text(key=C_Verde), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Verde),
+                                                      style=ft.ButtonStyle(bgcolor=C_Verde[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
                                     ft.MenuItemButton(content=ft.Text(key=C_Azul), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Azul),
+                                                      style=ft.ButtonStyle(bgcolor=C_Azul[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
                                     ft.MenuItemButton(content=ft.Text(key=C_Violeta), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Violeta),
+                                                      style=ft.ButtonStyle(bgcolor=C_Violeta[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
                                     ft.MenuItemButton(content=ft.Text(key=C_Gris), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Gris),
+                                                      style=ft.ButtonStyle(bgcolor=C_Gris[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
                                     ft.MenuItemButton(content=ft.Text(key=C_Blanco), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Blanco),
+                                                      style=ft.ButtonStyle(bgcolor=C_Blanco[0]),
                                                       on_click=Cambiar_Color_2)],
 
                                                       content=ft.Text("Color 2"))
