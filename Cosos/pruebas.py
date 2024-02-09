@@ -539,57 +539,57 @@ def main(page: ft.Page):
 
                                                       content=ft.Text("Tolerancia"))
     
-    STCR = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro[0]), 
+    STCR = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
                                                       
                                                       style=ft.ButtonStyle(bgcolor=C_Negro[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Marron[0]), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Marron), 
                                                       
                                                       style=ft.ButtonStyle(bgcolor=C_Marron[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo[0]), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo), 
                                                       
                                                       style=ft.ButtonStyle(bgcolor=C_Rojo[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja[0]), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja), 
                                                       
                                                       style=ft.ButtonStyle(bgcolor=C_Naranja[0]),
                                                       on_click=Cambiar_Color_TCR),
 
-                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo[0]), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo), 
                                                       
                                                       style=ft.ButtonStyle(bgcolor=C_Amarillo[0]),
                                                       on_click=Cambiar_Color_TCR),
 
-                                    ft.MenuItemButton(content=ft.Text(key=C_Verde[0]), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Verde), 
                                                       
                                                       style=ft.ButtonStyle(bgcolor=C_Verde[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Azul[0]), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Azul), 
                                                       
                                                       style=ft.ButtonStyle(bgcolor=C_Azul[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta[0]), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta), 
                                                       
                                                       style=ft.ButtonStyle(bgcolor=C_Violeta[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Gris[0]), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Gris), 
                                                       
                                                       style=ft.ButtonStyle(bgcolor=C_Gris[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco[0]), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco), 
                                                       
                                                       style=ft.ButtonStyle(bgcolor=C_Blanco[0]),
                                                       on_click=Cambiar_Color_TCR)],
 
-                                                      content=ft.Text("TCR"), expand=False)
+                                                      content=ft.Text("TCR"))
      
     IMG_R = ft.Image(src="Resistor 2.png", scale=1.25) # Dibujo del resistor
 
