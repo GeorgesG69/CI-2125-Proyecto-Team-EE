@@ -3,6 +3,7 @@ from flet import *
 from colorama import Back, Fore, init
 init()
 
+
 def main(page: ft.Page):
     page.title = "Calculadora de Resistores" # Título del borde de la ventana
     #page.bgcolor = "#1a0f2a" # Color del fondo
