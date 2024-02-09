@@ -21,18 +21,18 @@ def main(page: ft.Page):
 
     # Colores con sus códigos
 
-    C_Negro = "#000000"     # Negro
-    C_Marron = "#883c00"    # Marrón
-    C_Rojo = "#ff0000"      # Rojo
-    C_Naranja = "#ff872e"   # Naranja
-    C_Amarillo = "#f3e800"  # Amarillo
-    C_Verde = "#28a700"     # Verde
-    C_Azul = "#009bb6"      # Azul
-    C_Violeta = "#8200e1"   # Violeta
-    C_Gris = "#737373"      # Gris
-    C_Blanco = "#ffffff"    # Blanco
-    C_Dorado = "#958000"    # Dorado
-    C_Plateado = "#b4b4b4"  # Plateado
+    C_Negro = ["#000000", "0", "0", "0", "x1", " ", "250ppm/k"]    # Negro
+    C_Marron = ["#883c00", "1", "1", "1", "x10", "±1%", "100ppm/k"]    # Marrón
+    C_Rojo = ["#ff0000", "2", "2", "2", "x100", "±2%", "50ppm/k"]      # Rojo
+    C_Naranja = ["#ff872e", "3", "3", "3", "x1000", "±0,05%", "15ppm/k"]   # Naranja
+    C_Amarillo = ["#f3e800", "4", "4", "4", "x10000", "±0,02%", "25ppm/k"]  # Amarillo
+    C_Verde = ["#28a700", "5", "5", "5", "x100000", "±0,5%", "20ppm/k"]     # Verde
+    C_Azul = ["#009bb6", "6", "6", "6", "X1000000", "±0,25%", "10ppm/k"]      # Azul
+    C_Violeta = ["#8200e1", "7", "7", "7", "x10000000", "±0,1%", "5ppm/k"]   # Violeta
+    C_Gris = ["#737373", "8", "8", "8", "x100000000", "±0,01%", "1ppm/k"]      # Gris
+    C_Blanco = ["#ffffff", "9", "9", "9", "x1000000000", " ", " "]    # Blanco
+    C_Dorado = ["#958000", " ", " ", " ", "x0,1", "±5%", " "]    # Dorado
+    C_Plateado = ["#b4b4b4", " ", " ", " ", "x0,01", "±10%", " "]  # Plateado
 
     # Bandas
 
@@ -207,319 +207,319 @@ def main(page: ft.Page):
 
     Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
 
-    S1 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
+    S1 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Negro),
+                                                      style=ft.ButtonStyle(bgcolor=C_Negro[0]),
                                                       on_click=Cambiar_Color_1),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Marron), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Marron[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Marron),
+                                                      style=ft.ButtonStyle(bgcolor=C_Marron[0]),
                                                       on_click=Cambiar_Color_1),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Rojo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Rojo[0]),
                                                       on_click=Cambiar_Color_1),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Naranja),
-                                                      on_click=Cambiar_Color_1),
-
-                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo), 
-                                                      
-                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Naranja[0]),
                                                       on_click=Cambiar_Color_1),
 
-                                    ft.MenuItemButton(content=ft.Text(key=C_Verde), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Verde),
+                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo[0]),
+                                                      on_click=Cambiar_Color_1),
+
+                                    ft.MenuItemButton(content=ft.Text(key=C_Verde[0]), 
+                                                      
+                                                      style=ft.ButtonStyle(bgcolor=C_Verde[0]),
                                                       on_click=Cambiar_Color_1),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Azul), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Azul[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Azul),
+                                                      style=ft.ButtonStyle(bgcolor=C_Azul[0]),
                                                       on_click=Cambiar_Color_1),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Violeta),
+                                                      style=ft.ButtonStyle(bgcolor=C_Violeta[0]),
                                                       on_click=Cambiar_Color_1),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Gris), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Gris[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Gris),
+                                                      style=ft.ButtonStyle(bgcolor=C_Gris[0]),
                                                       on_click=Cambiar_Color_1),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Blanco),
+                                                      style=ft.ButtonStyle(bgcolor=C_Blanco[0]),
                                                       on_click=Cambiar_Color_1)],
 
                                                       content=ft.Text("Color 1"))
     
-    S2 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
+    S2 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Negro),
+                                                      style=ft.ButtonStyle(bgcolor=C_Negro[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Marron), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Marron[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Marron),
+                                                      style=ft.ButtonStyle(bgcolor=C_Marron[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Rojo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Rojo[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Naranja),
-                                                      on_click=Cambiar_Color_2),
-
-                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo), 
-                                                      
-                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Naranja[0]),
                                                       on_click=Cambiar_Color_2),
 
-                                    ft.MenuItemButton(content=ft.Text(key=C_Verde), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Verde),
+                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo[0]),
+                                                      on_click=Cambiar_Color_2),
+
+                                    ft.MenuItemButton(content=ft.Text(key=C_Verde[0]), 
+                                                      
+                                                      style=ft.ButtonStyle(bgcolor=C_Verde[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Azul), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Azul[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Azul),
+                                                      style=ft.ButtonStyle(bgcolor=C_Azul[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Violeta),
+                                                      style=ft.ButtonStyle(bgcolor=C_Violeta[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Gris), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Gris[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Gris),
+                                                      style=ft.ButtonStyle(bgcolor=C_Gris[0]),
                                                       on_click=Cambiar_Color_2),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Blanco),
+                                                      style=ft.ButtonStyle(bgcolor=C_Blanco[0]),
                                                       on_click=Cambiar_Color_2)],
 
                                                       content=ft.Text("Color 2"))
     
-    S3 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
+    S3 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Negro),
+                                                      style=ft.ButtonStyle(bgcolor=C_Negro[0]),
                                                       on_click=Cambiar_Color_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Marron), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Marron[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Marron),
+                                                      style=ft.ButtonStyle(bgcolor=C_Marron[0]),
                                                       on_click=Cambiar_Color_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Rojo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Rojo[0]),
                                                       on_click=Cambiar_Color_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Naranja),
-                                                      on_click=Cambiar_Color_3),
-
-                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo), 
-                                                      
-                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Naranja[0]),
                                                       on_click=Cambiar_Color_3),
 
-                                    ft.MenuItemButton(content=ft.Text(key=C_Verde), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Verde),
+                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo[0]),
+                                                      on_click=Cambiar_Color_3),
+
+                                    ft.MenuItemButton(content=ft.Text(key=C_Verde[0]), 
+                                                      
+                                                      style=ft.ButtonStyle(bgcolor=C_Verde[0]),
                                                       on_click=Cambiar_Color_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Azul), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Azul[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Azul),
+                                                      style=ft.ButtonStyle(bgcolor=C_Azul[0]),
                                                       on_click=Cambiar_Color_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Violeta),
+                                                      style=ft.ButtonStyle(bgcolor=C_Violeta[0]),
                                                       on_click=Cambiar_Color_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Gris), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Gris[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Gris),
+                                                      style=ft.ButtonStyle(bgcolor=C_Gris[0]),
                                                       on_click=Cambiar_Color_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Blanco),
+                                                      style=ft.ButtonStyle(bgcolor=C_Blanco[0]),
                                                       on_click=Cambiar_Color_3)],
 
                                                       content=ft.Text("Color 3"))
     
-    SMultiplicador_3 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
+    SMultiplicador_3 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Negro),
+                                                      style=ft.ButtonStyle(bgcolor=C_Negro[0]),
                                                       on_click=Cambiar_Multiplicador_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Marron), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Marron[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Marron),
+                                                      style=ft.ButtonStyle(bgcolor=C_Marron[0]),
                                                       on_click=Cambiar_Multiplicador_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Rojo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Rojo[0]),
                                                       on_click=Cambiar_Multiplicador_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Naranja),
-                                                      on_click=Cambiar_Multiplicador_3),
-
-                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo), 
-                                                      
-                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Naranja[0]),
                                                       on_click=Cambiar_Multiplicador_3),
 
-                                    ft.MenuItemButton(content=ft.Text(key=C_Verde), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Verde),
+                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo[0]),
+                                                      on_click=Cambiar_Multiplicador_3),
+
+                                    ft.MenuItemButton(content=ft.Text(key=C_Verde[0]), 
+                                                      
+                                                      style=ft.ButtonStyle(bgcolor=C_Verde[0]),
                                                       on_click=Cambiar_Multiplicador_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Azul), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Azul[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Azul),
+                                                      style=ft.ButtonStyle(bgcolor=C_Azul[0]),
                                                       on_click=Cambiar_Multiplicador_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Violeta),
+                                                      style=ft.ButtonStyle(bgcolor=C_Violeta[0]),
                                                       on_click=Cambiar_Multiplicador_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Gris), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Gris[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Gris),
+                                                      style=ft.ButtonStyle(bgcolor=C_Gris[0]),
                                                       on_click=Cambiar_Multiplicador_3),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Blanco),
+                                                      style=ft.ButtonStyle(bgcolor=C_Blanco[0]),
                                                       on_click=Cambiar_Multiplicador_3)],
 
                                                       content=ft.Text("Multiplicador"))
     
-    SMultiplicador_4 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
+    SMultiplicador_4 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Negro),
+                                                      style=ft.ButtonStyle(bgcolor=C_Negro[0]),
                                                       on_click=Cambiar_Multiplicador_4),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Marron), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Marron[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Marron),
+                                                      style=ft.ButtonStyle(bgcolor=C_Marron[0]),
                                                       on_click=Cambiar_Multiplicador_4),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Rojo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Rojo[0]),
                                                       on_click=Cambiar_Multiplicador_4),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Naranja),
-                                                      on_click=Cambiar_Multiplicador_4),
-
-                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo), 
-                                                      
-                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Naranja[0]),
                                                       on_click=Cambiar_Multiplicador_4),
 
-                                    ft.MenuItemButton(content=ft.Text(key=C_Verde), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Verde),
+                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo[0]),
+                                                      on_click=Cambiar_Multiplicador_4),
+
+                                    ft.MenuItemButton(content=ft.Text(key=C_Verde[0]), 
+                                                      
+                                                      style=ft.ButtonStyle(bgcolor=C_Verde[0]),
                                                       on_click=Cambiar_Multiplicador_4),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Azul), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Azul[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Azul),
+                                                      style=ft.ButtonStyle(bgcolor=C_Azul[0]),
                                                       on_click=Cambiar_Multiplicador_4),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Violeta),
+                                                      style=ft.ButtonStyle(bgcolor=C_Violeta[0]),
                                                       on_click=Cambiar_Multiplicador_4),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Gris), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Gris[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Gris),
+                                                      style=ft.ButtonStyle(bgcolor=C_Gris[0]),
                                                       on_click=Cambiar_Multiplicador_4),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Blanco),
+                                                      style=ft.ButtonStyle(bgcolor=C_Blanco[0]),
                                                       on_click=Cambiar_Multiplicador_4),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Dorado), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Dorado[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Dorado),
+                                                      style=ft.ButtonStyle(bgcolor=C_Dorado[0]),
                                                       on_click=Cambiar_Multiplicador_4),
                                     
-                                    ft.MenuItemButton(content=ft.Text(key=C_Plateado), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Plateado[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Plateado),
+                                                      style=ft.ButtonStyle(bgcolor=C_Plateado[0]),
                                                       on_click=Cambiar_Multiplicador_4)],
 
                                                       content=ft.Text("Multiplicador"))
     
-    STolerancia = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
+    STolerancia = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Negro),
+                                                      style=ft.ButtonStyle(bgcolor=C_Negro[0]),
                                                       on_click=Cambiar_Color_T),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Marron), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Marron[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Marron),
+                                                      style=ft.ButtonStyle(bgcolor=C_Marron[0]),
                                                       on_click=Cambiar_Color_T),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Rojo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Rojo[0]),
                                                       on_click=Cambiar_Color_T),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Naranja),
-                                                      on_click=Cambiar_Color_T),
-
-                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo), 
-                                                      
-                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Naranja[0]),
                                                       on_click=Cambiar_Color_T),
 
-                                    ft.MenuItemButton(content=ft.Text(key=C_Verde), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Verde),
+                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo[0]),
+                                                      on_click=Cambiar_Color_T),
+
+                                    ft.MenuItemButton(content=ft.Text(key=C_Verde[0]), 
+                                                      
+                                                      style=ft.ButtonStyle(bgcolor=C_Verde[0]),
                                                       on_click=Cambiar_Color_T),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Azul), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Azul[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Azul),
+                                                      style=ft.ButtonStyle(bgcolor=C_Azul[0]),
                                                       on_click=Cambiar_Color_T),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Violeta),
+                                                      style=ft.ButtonStyle(bgcolor=C_Violeta[0]),
                                                       on_click=Cambiar_Color_T),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Gris), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Gris[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Gris),
+                                                      style=ft.ButtonStyle(bgcolor=C_Gris[0]),
                                                       on_click=Cambiar_Color_T),
                                                       
                                     ft.MenuItemButton(content=ft.Text(key=C_Blanco), 
@@ -527,66 +527,66 @@ def main(page: ft.Page):
                                                       style=ft.ButtonStyle(bgcolor=C_Blanco),
                                                       on_click=Cambiar_Color_T),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Dorado), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Dorado[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Dorado),
+                                                      style=ft.ButtonStyle(bgcolor=C_Dorado[0]),
                                                       on_click=Cambiar_Color_T),
                                     
-                                    ft.MenuItemButton(content=ft.Text(key=C_Plateado), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Plateado[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Plateado),
+                                                      style=ft.ButtonStyle(bgcolor=C_Plateado[0]),
                                                       on_click=Cambiar_Color_T)],
 
                                                       content=ft.Text("Tolerancia"))
     
-    STCR = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
+    STCR = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Negro),
+                                                      style=ft.ButtonStyle(bgcolor=C_Negro[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Marron), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Marron[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Marron),
+                                                      style=ft.ButtonStyle(bgcolor=C_Marron[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Rojo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Rojo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Rojo[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Naranja[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Naranja),
-                                                      on_click=Cambiar_Color_TCR),
-
-                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo), 
-                                                      
-                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo),
+                                                      style=ft.ButtonStyle(bgcolor=C_Naranja[0]),
                                                       on_click=Cambiar_Color_TCR),
 
-                                    ft.MenuItemButton(content=ft.Text(key=C_Verde), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Amarillo[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Verde),
+                                                      style=ft.ButtonStyle(bgcolor=C_Amarillo[0]),
+                                                      on_click=Cambiar_Color_TCR),
+
+                                    ft.MenuItemButton(content=ft.Text(key=C_Verde[0]), 
+                                                      
+                                                      style=ft.ButtonStyle(bgcolor=C_Verde[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Azul), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Azul[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Azul),
+                                                      style=ft.ButtonStyle(bgcolor=C_Azul[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Violeta[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Violeta),
+                                                      style=ft.ButtonStyle(bgcolor=C_Violeta[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Gris), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Gris[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Gris),
+                                                      style=ft.ButtonStyle(bgcolor=C_Gris[0]),
                                                       on_click=Cambiar_Color_TCR),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Blanco),
+                                                      style=ft.ButtonStyle(bgcolor=C_Blanco[0]),
                                                       on_click=Cambiar_Color_TCR)],
 
                                                       content=ft.Text("TCR"))
