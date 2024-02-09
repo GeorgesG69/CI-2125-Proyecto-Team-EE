@@ -16,7 +16,7 @@ def main(page: ft.Page):
         ])], alignment=MainAxisAlignment.CENTER)
     
     SelColores = ft.Row(alignment=MainAxisAlignment.CENTER) # Fila de selectores de colores
-    Colores = ft.Row(expand=True, scale=1.25, width=174, height=677) # Bandas del resistor, cambian de color
+    Colores = ft.Row(expand=False, scale=1.25) # Bandas del resistor, cambian de color
 
     # Colores con sus códigos
 
@@ -85,7 +85,7 @@ def main(page: ft.Page):
                              ft.VerticalDivider(width=100, opacity=0), 
                              STolerancia]
             
-            Colores.controls = [ft.VerticalDivider(width=110, opacity=0),
+            Colores.controls = [ft.VerticalDivider(width=120, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
                                 B_2,
@@ -110,7 +110,7 @@ def main(page: ft.Page):
                              ft.VerticalDivider(width=110, opacity=0), 
                              STolerancia]
             
-            Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
+            Colores.controls = [ft.VerticalDivider(width=80, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
                                 B_2,
@@ -126,11 +126,11 @@ def main(page: ft.Page):
 
         elif e.control.value == "4":
             
-            Menu.controls = [ft.VerticalDivider(width=300, opacity=0),
+            Menu.controls = [ft.VerticalDivider(width=280, opacity=0),
                              S1,
-                             ft.VerticalDivider(width=20, opacity=0), 
+                             ft.VerticalDivider(width=55, opacity=0), 
                              S2, 
-                             ft.VerticalDivider(width=20, opacity=0),
+                             ft.VerticalDivider(width=55, opacity=0),
                              S3, 
                              ft.VerticalDivider(width=50, opacity=0),
                              SMultiplicador_4, 
@@ -141,13 +141,13 @@ def main(page: ft.Page):
             
             Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
                                 B_1,
-                                ft.VerticalDivider(width=30, opacity=0),
+                                ft.VerticalDivider(width=60, opacity=0),
                                 B_2,
-                                ft.VerticalDivider(width=30, opacity=0),
+                                ft.VerticalDivider(width=60, opacity=0),
                                 B_3,
-                                ft.VerticalDivider(width=70, opacity=0),
+                                ft.VerticalDivider(width=60, opacity=0),
                                 BM_4,
-                                ft.VerticalDivider(width=90, opacity=0),
+                                ft.VerticalDivider(width=100, opacity=0),
                                 B_T,
                                 ft.VerticalDivider(width=40, opacity=0),
                                 B_TCR
@@ -204,7 +204,7 @@ def main(page: ft.Page):
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
 
-    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
+    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER, size=20, italic=True)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
 
     S1 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
                                                       
@@ -592,15 +592,12 @@ def main(page: ft.Page):
      
     IMG_R = ft.Image(src="Resistor 2.png", scale=1.25) # Dibujo del resistor
 
-    perol = ft.canvas.Rect(0, -15, 573, 170, border_radius=60, paint=ft.Paint(color="#925219"))
-    Contactos = ft.canvas.Rect(-50, 60, 677, 28, border_radius=0, paint=ft.Paint(color="#565656"))
-
     Imagen = ft.Row(controls=[ft.Stack(controls=[      # Fila que contiene un "Stack", un elemento que sirve para poner cosas
                                                        # encima de otras
-        ft.canvas.Canvas([Contactos, perol], expand=False, scale=1.25),
+        IMG_R,
         Colores,
         
-    ],)], alignment=MainAxisAlignment.CENTER, height=174, width=677)
+    ])], alignment=MainAxisAlignment.CENTER)
             
     # Etiquetas de cada selector de punto. Tambien se pueden colocar en la propia función "ft.Radio". Pero preferí ponerla así.
 
@@ -631,8 +628,10 @@ def main(page: ft.Page):
     
     # Acá se añaden los elementos a la interfaz. 
 
-    page.add(Titulo(), SelColores)
-    page.add(ft.Divider(opacity=0, height=25), ft.Row([Menu], alignment=MainAxisAlignment.CENTER), ft.Divider(opacity=0,))
+    page.add(Titulo())
+    page.add(ft.Divider(opacity=0, height=5), 
+             ft.Row([Menu], alignment=MainAxisAlignment.CENTER), 
+             ft.Divider(opacity=0, height=25))
     page.add(Imagen)
     page.add(ft.Divider(opacity=0, height=25))
     page.add(Selector)
@@ -640,4 +639,4 @@ def main(page: ft.Page):
     
 
 
-ft.app(target=main) # Arranque de la aplicación
+ft.app(target=main, view=AppView.FLET_APP) # Arranque de la aplicación
