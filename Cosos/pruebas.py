@@ -157,7 +157,7 @@ def main(page: ft.Page):
             page.update()
 
     def Cambiar_Color_1(e):
-        B_1.bgcolor = e.control.content.key
+        B_1.bgcolor = e.control.content.key[0]
 
         page.update()
     
@@ -207,12 +207,12 @@ def main(page: ft.Page):
 
     Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
 
-    S1 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro[0]), 
+    S1 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
                                                       
                                                       style=ft.ButtonStyle(bgcolor=C_Negro[0]),
                                                       on_click=Cambiar_Color_1),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Marron[0]), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Marron), 
                                                       
                                                       style=ft.ButtonStyle(bgcolor=C_Marron[0]),
                                                       on_click=Cambiar_Color_1),
