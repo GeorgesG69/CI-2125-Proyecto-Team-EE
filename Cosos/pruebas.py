@@ -328,7 +328,7 @@ def main(page: ft.Page):
                                                       
                                     ft.MenuItemButton(content=ft.Text(key=C_Naranja), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Naranja),
+                                                      style=ft.ButtonStyle(bgcolor=C_Naranja[0]),
                                                       on_click=Cambiar_Color_3),
 
                                     ft.MenuItemButton(content=ft.Text(key=C_Amarillo), 
