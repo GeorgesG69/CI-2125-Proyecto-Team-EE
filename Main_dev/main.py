@@ -522,9 +522,9 @@ def main(page: ft.Page):
                                                       style=ft.ButtonStyle(bgcolor=C_Gris[0]),
                                                       on_click=Cambiar_Color_T),
                                                       
-                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco), 
+                                    ft.MenuItemButton(content=ft.Text(key=C_Blanco[0]), 
                                                       
-                                                      style=ft.ButtonStyle(bgcolor=C_Blanco),
+                                                      style=ft.ButtonStyle(bgcolor=C_Blanco[0]),
                                                       on_click=Cambiar_Color_T),
                                                       
                                     ft.MenuItemButton(content=ft.Text(key=C_Dorado[0]), 
@@ -589,7 +589,7 @@ def main(page: ft.Page):
                                                       style=ft.ButtonStyle(bgcolor=C_Blanco[0]),
                                                       on_click=Cambiar_Color_TCR)],
 
-                                                      content=ft.Text("TCR"))
+                                                      content=ft.Text("TCR"), expand=False)
      
     IMG_R = ft.Image(src="Resistor 2.png", scale=1.25) # Dibujo del resistor
 
