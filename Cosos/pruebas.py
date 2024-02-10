@@ -156,13 +156,26 @@ def main(page: ft.Page):
 
             page.update()
 
+    
+    Salida_de_C1 = ft.Text(size=30)
+    Salida_de_C2 = ft.Text(size=30)
+    Salida_de_C3 = ft.Text(size=30)
+
     def Cambiar_Color_1(e):
+        
         B_1.bgcolor = e.control.content.key[0]
+
+        Valor_C1 = e.control.content.key[1]
+        Salida_de_C1.value = Valor_C1
 
         page.update()
     
     def Cambiar_Color_2(e):
+        
         B_2.bgcolor = e.control.content.key[0]
+        Valor_C2 = e.control.content.key[2]
+        Salida_de_C2.value = Valor_C2
+             
 
         page.update()
 
@@ -190,13 +203,10 @@ def main(page: ft.Page):
         B_TCR.bgcolor = e.control.content.key[0]
 
         page.update()
-    
-    Salida_de_valor = ft.Text()
-    
-    Resultado = ft.Text(value="Resultados", size=30) # Título de los resultados
 
 
-    
+    Resultado = ft.Text(value="Resultados: ", size=30) # Título de los resultados
+
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
 
@@ -632,7 +642,10 @@ def main(page: ft.Page):
     page.add(Imagen)
     page.add(ft.Divider(opacity=0, height=25))
     page.add(Selector)
-    page.add(Resultado)
+    page.add(ft.Container(content=ft.Row(controls=[Resultado, 
+                              Salida_de_C1, 
+                              Salida_de_C2, 
+                              Salida_de_C3], alignment=MainAxisAlignment.CENTER)))
     
 
 
