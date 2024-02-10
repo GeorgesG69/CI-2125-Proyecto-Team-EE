@@ -185,29 +185,29 @@ def main(page: ft.Page):
 
         Salida_de_M3.value = e.control.content.key[1]
 
+        if (e.control.key[0] == "#958000") :
+            Salida_de_C2.value = "," + e.control.content.key[1]
+        elif (e.control.key[0] == "#b4b4b4"):
+            Salida_de_C1.value = ",0" + e.control.content.key[1]
+        else:
+            Salida_de_M4.value = e.control.content.key[1]
+
         page.update()
 
     def Cambiar_Multiplicador_4(e):
         BM_4.bgcolor = e.control.content.key[0]
-        
+    
         if (e.control.key[0] == "#958000") :
             Salida_de_C3.value = "," + e.control.content.key[1]
         elif (e.control.key[0] == "#b4b4b4"):
-            Salida_de_C3.value = ",0" + e.control.content.key[1]
+            Salida_de_C2.value = "," + e.control.content.key[1]
         else:
-            Salida_de_M4.value = e.control.content.key[1]
-        
+            Salida_de_M3.value = e.control.content.key[1]
         page.update()
 
     def Cambiar_Color_3(e):
         B_3.bgcolor = e.control.content.key[0]
 
-        if (e.control.key[0] == "#958000") :
-            Salida_de_C2.value = "," + e.control.content.key[1]
-        elif (e.control.key[0] == "#b4b4b4"):
-            Salida_de_C2.value = ",0" + e.control.content.key[1]
-        else:
-            Salida_de_M3.value = e.control.content.key[1]
         page.update()
     
     def Cambiar_Color_T(e):
