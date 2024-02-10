@@ -31,8 +31,8 @@ def main(page: ft.Page):
     C_Violeta = ["#8200e1", "7", "7", "7", "0MΩ", "±0,1%", "5ppm/k"]   # Violeta
     C_Gris = ["#737373", "8", "8", "8", " 00MΩ", "±0,01%", "1ppm/k"]      # Gris
     C_Blanco = ["#ffffff", "9", "9", "9", "GΩ", " ", " "]    # Blanco
-    C_Dorado = ["#958000", " ", " ", " ", "x0,1", "±5%", " "]    # Dorado
-    C_Plateado = ["#b4b4b4", " ", " ", " ", "x0,01", "±10%", " "]  # Plateado
+    C_Dorado = ["#958000", " ", " ", " ", "x0,1Ω", "±5%", " "]    # Dorado
+    C_Plateado = ["#b4b4b4", " ", " ", " ", "x0,01Ω", "±10%", " "]  # Plateado
 
     # Bandas
 
@@ -160,8 +160,8 @@ def main(page: ft.Page):
     Salida_de_C1 = ft.Text(size=30)
     Salida_de_C2 = ft.Text(size=30)
     Salida_de_C3 = ft.Text(size=30)
-    Salida_de_M3 = ft.Text(size=30)
-    Salida_de_M4 = ft.Text(size=30)
+    Salida_de_M = ft.Text(size=30)
+    Salida_de_Tol = ft.Text(size=30)
     Salida_de_TCR = ft.Text(size=30)
 
     def Cambiar_Color_1(e):
@@ -183,43 +183,36 @@ def main(page: ft.Page):
     def Cambiar_Multiplicador_3(e):
         BM_3.bgcolor = e.control.content.key[0]
 
-        Salida_de_M3.value = e.control.content.key[3]
-
-        if (e.control.key[0] == "#958000") :
-            Salida_de_C2.value = "," + e.control.content.key[1]
-        elif (e.control.key[0] == "#b4b4b4"):
-            Salida_de_C1.value = ",0" + e.control.content.key[1]
-        else:
-            Salida_de_M4.value = e.control.content.key[1]
+        Salida_de_M.value = e.control.content.key[4]
 
         page.update()
 
     def Cambiar_Multiplicador_4(e):
         BM_4.bgcolor = e.control.content.key[0]
+
+        Salida_de_M.value = e.control.content.key[4]
     
-        if (e.control.key[0] == "#958000") :
-            Salida_de_C3.value = "," + e.control.content.key[1]
-        elif (e.control.key[0] == "#b4b4b4"):
-            Salida_de_C2.value = "," + e.control.content.key[1]
-        else:
-            Salida_de_M3.value = e.control.content.key[1]
         page.update()
 
     def Cambiar_Color_3(e):
         B_3.bgcolor = e.control.content.key[0]
+
+        Salida_de_C3.value = e.control.content.key[3]
 
         page.update()
     
     def Cambiar_Color_T(e):
         B_T.bgcolor = e.control.content.key[0]
 
-        Salida_de_TCR.value = e.control.content.key[5]
+        Salida_de_Tol.value = e.control.content.key[5]
+
         page.update()
     
     def Cambiar_Color_TCR(e):
         B_TCR.bgcolor = e.control.content.key[0]
 
         Salida_de_TCR.value = e.control.content.key[6]
+
         page.update()
 
 
@@ -228,7 +221,7 @@ def main(page: ft.Page):
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
 
-    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
+    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER, size=20)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
 
     S1 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
                                                       
@@ -663,7 +656,13 @@ def main(page: ft.Page):
     page.add(ft.Container(content=ft.Row(controls=[Resultado, 
                               Salida_de_C1, 
                               Salida_de_C2, 
-                              Salida_de_C3], alignment=MainAxisAlignment.CENTER)))
+                              Salida_de_C3,
+                              Salida_de_M,
+                              Salida_de_Tol,
+                              Salida_de_TCR], 
+                              
+                              alignment=MainAxisAlignment.CENTER), 
+                              border_radius=5))
     
 
 
