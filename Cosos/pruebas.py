@@ -21,18 +21,18 @@ def main(page: ft.Page):
 
     # Colores con sus códigos
 
-    C_Negro = ["#000000", "0", "0", "0", "Ω", " ", "250ppm/k"]    # Negro
-    C_Marron = ["#883c00", "1", "1", "1", "0Ω", "±1%", "100ppm/k"]    # Marrón
-    C_Rojo = ["#ff0000", "2", "2", "2", "00Ω", "±2%", "50ppm/k"]      # Rojo
-    C_Naranja = ["#ff872e", "3", "3", "3", "kΩ", "±0,05%", "15ppm/k"]   # Naranja
-    C_Amarillo = ["#f3e800", "4", "4", "4", "0kΩ", "±0,02%", "25ppm/k"]  # Amarillo
-    C_Verde = ["#28a700", "5", "5", "5", "00kΩ", "±0,5%", "20ppm/k"]     # Verde
-    C_Azul = ["#009bb6", "6", "6", "6", "MΩ", "±0,25%", "10ppm/k"]      # Azul
-    C_Violeta = ["#8200e1", "7", "7", "7", "0MΩ", "±0,1%", "5ppm/k"]   # Violeta
-    C_Gris = ["#737373", "8", "8", "8", " 00MΩ", "±0,01%", "1ppm/k"]      # Gris
-    C_Blanco = ["#ffffff", "9", "9", "9", "GΩ", " ", " "]    # Blanco
-    C_Dorado = ["#958000", " ", " ", " ", "x0,1Ω", "±5%", " "]    # Dorado
-    C_Plateado = ["#b4b4b4", " ", " ", " ", "x0,01Ω", "±10%", " "]  # Plateado
+    C_Negro = ["#000000", "0", "0", "0", " Ω", " ", "250 ppm/k"]    # Negro
+    C_Marron = ["#883c00", "1", "1", "1", "0 Ω", "± 1%", "100 ppm/k"]    # Marrón
+    C_Rojo = ["#ff0000", "2", "2", "2", "00 Ω", "± 2%", "50 ppm/k"]      # Rojo
+    C_Naranja = ["#ff872e", "3", "3", "3", " kΩ", "± 0,05%", "15 ppm/k"]   # Naranja
+    C_Amarillo = ["#f3e800", "4", "4", "4", "0 kΩ", "± 0,02%", "25 ppm/k"]  # Amarillo
+    C_Verde = ["#28a700", "5", "5", "5", "00 kΩ", "± 0,5%", "20 ppm/k"]     # Verde
+    C_Azul = ["#009bb6", "6", "6", "6", " MΩ", "± 0,25%", "10 ppm/k"]      # Azul
+    C_Violeta = ["#8200e1", "7", "7", "7", "0 MΩ", "± 0,1%", "5 ppm/k"]   # Violeta
+    C_Gris = ["#737373", "8", "8", "8", " 00 MΩ", "± 0,01%", "1 ppm/k"]      # Gris
+    C_Blanco = ["#ffffff", "9", "9", "9", " GΩ", " ", " "]    # Blanco
+    C_Dorado = ["#958000", " ", " ", " ", "x0,1 Ω", "± 5%", " "]    # Dorado
+    C_Plateado = ["#b4b4b4", " ", " ", " ", "x0,01 Ω", "± 10%", " "]  # Plateado
 
     # Bandas
 
@@ -157,9 +157,9 @@ def main(page: ft.Page):
             page.update()
 
     
-    Salida_de_C1 = ft.Text(size=30)
-    Salida_de_C2 = ft.Text(size=30)
-    Salida_de_C3 = ft.Text(size=30)
+    Salida_de_C1 = ft.Text(size=30, width=5)
+    Salida_de_C2 = ft.Text(size=30, width=5)
+    Salida_de_C3 = ft.Text(size=30, width=5)
     Salida_de_M = ft.Text(size=30)
     Salida_de_Tol = ft.Text(size=30)
     Salida_de_TCR = ft.Text(size=30)
