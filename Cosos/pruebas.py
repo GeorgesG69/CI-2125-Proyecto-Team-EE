@@ -176,14 +176,14 @@ def main(page: ft.Page):
         
         B_2.bgcolor = e.control.content.key[0]
 
-        Salida_de_C2.value = e.control.content.key[1]
+        Salida_de_C2.value = e.control.content.key[2]
              
         page.update()
 
     def Cambiar_Multiplicador_3(e):
         BM_3.bgcolor = e.control.content.key[0]
 
-        Salida_de_M3.value = e.control.content.key[1]
+        Salida_de_M3.value = e.control.content.key[3]
 
         page.update()
 
