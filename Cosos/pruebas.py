@@ -21,16 +21,16 @@ def main(page: ft.Page):
 
     # Colores con sus códigos
 
-    C_Negro = ["#000000", "0", "0", "0", "x1", " ", "250ppm/k"]    # Negro
-    C_Marron = ["#883c00", "1", "1", "1", "x10", "±1%", "100ppm/k"]    # Marrón
-    C_Rojo = ["#ff0000", "2", "2", "2", "x100", "±2%", "50ppm/k"]      # Rojo
-    C_Naranja = ["#ff872e", "3", "3", "3", "x1000", "±0,05%", "15ppm/k"]   # Naranja
-    C_Amarillo = ["#f3e800", "4", "4", "4", "x10000", "±0,02%", "25ppm/k"]  # Amarillo
-    C_Verde = ["#28a700", "5", "5", "5", "x100000", "±0,5%", "20ppm/k"]     # Verde
-    C_Azul = ["#009bb6", "6", "6", "6", "X1000000", "±0,25%", "10ppm/k"]      # Azul
-    C_Violeta = ["#8200e1", "7", "7", "7", "x10000000", "±0,1%", "5ppm/k"]   # Violeta
-    C_Gris = ["#737373", "8", "8", "8", "x100000000", "±0,01%", "1ppm/k"]      # Gris
-    C_Blanco = ["#ffffff", "9", "9", "9", "x1000000000", " ", " "]    # Blanco
+    C_Negro = ["#000000", "0", "0", "0", "Ω", " ", "250ppm/k"]    # Negro
+    C_Marron = ["#883c00", "1", "1", "1", "0Ω", "±1%", "100ppm/k"]    # Marrón
+    C_Rojo = ["#ff0000", "2", "2", "2", "00Ω", "±2%", "50ppm/k"]      # Rojo
+    C_Naranja = ["#ff872e", "3", "3", "3", "kΩ", "±0,05%", "15ppm/k"]   # Naranja
+    C_Amarillo = ["#f3e800", "4", "4", "4", "0kΩ", "±0,02%", "25ppm/k"]  # Amarillo
+    C_Verde = ["#28a700", "5", "5", "5", "00kΩ", "±0,5%", "20ppm/k"]     # Verde
+    C_Azul = ["#009bb6", "6", "6", "6", "MΩ", "±0,25%", "10ppm/k"]      # Azul
+    C_Violeta = ["#8200e1", "7", "7", "7", "0MΩ", "±0,1%", "5ppm/k"]   # Violeta
+    C_Gris = ["#737373", "8", "8", "8", " 00MΩ", "±0,01%", "1ppm/k"]      # Gris
+    C_Blanco = ["#ffffff", "9", "9", "9", "GΩ", " ", " "]    # Blanco
     C_Dorado = ["#958000", " ", " ", " ", "x0,1", "±5%", " "]    # Dorado
     C_Plateado = ["#b4b4b4", " ", " ", " ", "x0,01", "±10%", " "]  # Plateado
 
@@ -160,48 +160,66 @@ def main(page: ft.Page):
     Salida_de_C1 = ft.Text(size=30)
     Salida_de_C2 = ft.Text(size=30)
     Salida_de_C3 = ft.Text(size=30)
+    Salida_de_M3 = ft.Text(size=30)
+    Salida_de_M4 = ft.Text(size=30)
+    Salida_de_TCR = ft.Text(size=30)
 
     def Cambiar_Color_1(e):
         
         B_1.bgcolor = e.control.content.key[0]
 
-        Valor_C1 = e.control.content.key[1]
-        Salida_de_C1.value = Valor_C1
+        Salida_de_C1.value = e.control.content.key[1]
 
         page.update()
     
     def Cambiar_Color_2(e):
         
         B_2.bgcolor = e.control.content.key[0]
-        Valor_C2 = e.control.content.key[2]
-        Salida_de_C2.value = Valor_C2
-             
 
+        Salida_de_C2.value = e.control.content.key[1]
+             
         page.update()
 
     def Cambiar_Multiplicador_3(e):
         BM_3.bgcolor = e.control.content.key[0]
+
+        Salida_de_M3.value = e.control.content.key[1]
 
         page.update()
 
     def Cambiar_Multiplicador_4(e):
         BM_4.bgcolor = e.control.content.key[0]
         
+        if (e.control.key[0] == "#958000") :
+            Salida_de_C3.value = "," + e.control.content.key[1]
+        elif (e.control.key[0] == "#b4b4b4"):
+            Salida_de_C3.value = ",0" + e.control.content.key[1]
+        else:
+            Salida_de_M4.value = e.control.content.key[1]
+        
         page.update()
 
     def Cambiar_Color_3(e):
         B_3.bgcolor = e.control.content.key[0]
 
+        if (e.control.key[0] == "#958000") :
+            Salida_de_C2.value = "," + e.control.content.key[1]
+        elif (e.control.key[0] == "#b4b4b4"):
+            Salida_de_C2.value = ",0" + e.control.content.key[1]
+        else:
+            Salida_de_M3.value = e.control.content.key[1]
         page.update()
     
     def Cambiar_Color_T(e):
         B_T.bgcolor = e.control.content.key[0]
 
+        Salida_de_TCR.value = e.control.content.key[5]
         page.update()
     
     def Cambiar_Color_TCR(e):
         B_TCR.bgcolor = e.control.content.key[0]
 
+        Salida_de_TCR.value = e.control.content.key[6]
         page.update()
 
 
