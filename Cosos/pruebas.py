@@ -4,7 +4,8 @@ from flet import *
 
 def main(page: ft.Page):
     page.title = "Calculadora de Resistores" # Título del borde de la ventana
-    #page.bgcolor = "#1a0f2a" # Color del fondo
+    page.horizontal_alignment = CrossAxisAlignment.CENTER
+
     def Titulo():
 
         Title = ft.Text(value="Calculadora de Resistores", size=33, font_family="Times New Roman") # Título del centro de la apliacción
@@ -14,7 +15,7 @@ def main(page: ft.Page):
             Title,
         ])], alignment=MainAxisAlignment.CENTER)
     
-    SelColores = ft.Row(alignment=MainAxisAlignment.CENTER) # Fila de selectores de colores
+    
     Colores = ft.Row(expand=True, scale=1.25, width=174, height=677) # Bandas del resistor, cambian de color
 
     # Colores con sus códigos
@@ -35,11 +36,11 @@ def main(page: ft.Page):
     # Bandas
 
     B_1 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
-    B_2 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
-    B_3 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    B_2 = ft.Container(bgcolor="#ffffff", width=15, height=120, border=ft.border.all(2, "#000000"), )
+    B_3 = ft.Container(bgcolor="#ffffff", width=15, height=120, border=ft.border.all(2, "#000000"), )
     B_4 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
-    BM_3 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
-    BM_4 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    BM_3 = ft.Container(bgcolor="#ffffff", width=15, height=120, border=ft.border.all(2, "#000000"), )
+    BM_4 = ft.Container(bgcolor="#ffffff", width=15, height=120, border=ft.border.all(2, "#000000"), )
     B_T = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
     B_TCR = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
 
@@ -55,12 +56,13 @@ def main(page: ft.Page):
         # Es lo que hace cada condicional a continuación:
 
         if e.control.value == "1": 
-            Menu.controls = [ft.VerticalDivider(width=415, opacity=0), 
+            Menu.controls = [ 
                              S1, 
                              ft.VerticalDivider(width=50, opacity=0), 
                              S2, 
                              ft.VerticalDivider(width=120, opacity=0), 
-                             SMultiplicador_3]
+                             SMultiplicador_3,
+                             ]
             
             B_1.bgcolor=C_Blanco[0]
             B_2.bgcolor=C_Blanco[0]
@@ -73,7 +75,9 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
-            Colores.controls = [ft.VerticalDivider(width=160, opacity=0),
+            B_1.height = 120
+
+            Colores.controls = [ft.VerticalDivider(width=140, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=55, opacity=0),
                                 B_2,
@@ -86,7 +90,7 @@ def main(page: ft.Page):
             
         elif e.control.value == "2":
 
-            Menu.controls = [ft.VerticalDivider(width=360, opacity=0),
+            Menu.controls = [
                              S1,
                              ft.VerticalDivider(width=50, opacity=0), 
                              S2,
@@ -107,7 +111,9 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
-            Colores.controls = [ft.VerticalDivider(width=110, opacity=0),
+            B_1.height = 170
+
+            Colores.controls = [ft.VerticalDivider(width=90, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
                                 B_2,
@@ -121,7 +127,7 @@ def main(page: ft.Page):
 
         elif e.control.value == "3":
 
-            Menu.controls = [ft.VerticalDivider(width=300, opacity=0),
+            Menu.controls = [
                              S1,
                              ft.VerticalDivider(width=60, opacity=0), 
                              S2,
@@ -145,7 +151,9 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
-            Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
+            B_1.height = 170
+
+            Colores.controls = [ft.VerticalDivider(width=50, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
                                 B_2,
@@ -161,7 +169,7 @@ def main(page: ft.Page):
 
         elif e.control.value == "4":
             
-            Menu.controls = [ft.VerticalDivider(width=300, opacity=0),
+            Menu.controls = [
                              S1,
                              ft.VerticalDivider(width=20, opacity=0), 
                              S2, 
@@ -187,6 +195,8 @@ def main(page: ft.Page):
             Salida_de_M.value = " "
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
+
+            B_1.height = 170
 
             Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
                                 B_1,
@@ -269,7 +279,7 @@ def main(page: ft.Page):
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
 
-    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER, size=22, color="red", weight=FontWeight.BOLD)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
+    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras.", text_align=TextAlign.CENTER, size=22, color="red", weight=FontWeight.BOLD)], style=ft.MenuStyle(alignment=ft.alignment.center))
 
     S1 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
                                                       
@@ -657,15 +667,20 @@ def main(page: ft.Page):
      
     IMG_R = ft.Image(src="Resistor 2.png", scale=1.25) # Dibujo del resistor
 
-    perol = ft.canvas.Rect(0, -15, 573, 170, border_radius=60, paint=ft.Paint(color="#925219"))
+    Perol_Izq = ft.canvas.Rect(0, -15, 120, 170, border_radius=20, paint=ft.Paint(color="#925219"))
+    Perol_Cen = ft.canvas.Rect(0, 10, 514, 120, border_radius=20, paint=ft.Paint(color="#925219"))
+    Perol_Der = ft.canvas.Rect(410, -15, 120, 170, border_radius=20, paint=ft.Paint(color="#925219"))
     Contactos = ft.canvas.Rect(-50, 60, 677, 28, border_radius=0, paint=ft.Paint(color="#565656"))
 
     Imagen = ft.Row(controls=[ft.Stack(controls=[      # Fila que contiene un "Stack", un elemento que sirve para poner cosas
                                                        # encima de otras
-        ft.canvas.Canvas([Contactos, perol], expand=False, scale=1.25),
+        ft.canvas.Canvas([Contactos, 
+                          Perol_Izq, 
+                          Perol_Cen, 
+                          Perol_Der], expand=False, scale=1.25),
         Colores,
         
-    ],)], alignment=MainAxisAlignment.CENTER, height=174, width=677)
+    ],)], height=174, width=677)
             
     # Etiquetas de cada selector de punto. Tambien se pueden colocar en la propia función "ft.Radio". Pero preferí ponerla así.
 
@@ -692,12 +707,26 @@ def main(page: ft.Page):
     
     
     , on_change=Bandas_Resistor)], alignment=MainAxisAlignment.CENTER)
+
+    # Parte pa que el usuario introduzca un valor
+
+    def Intoudir_Valor_Manual(e):
+        if e.control.value == True:
+            print("sis")
+        elif e.control.value == False:
+            print("nor")
+
+    Boton_Introducir = ft.Switch(label="Introducir valor manualmente", on_change=Intoudir_Valor_Manual)
+    Entrada_valor = ft.TextField(label="Valor en Ω", hint_text="Introduzca un valor en Ω")
+    Entrada_Multiplicador = ft.TextField(label="Multiplicador", hint_text="Introduzca el multiplicador")
+    Entrada_Tolerancia = ft.TextField(label="Tolerancia", hint_text="Introduzca la tolerancia")
+    Entrada_TCR = ft.TextField(label="TCR", hint_text="Introduzca el tcr")
     
     
     # Acá se añaden los elementos a la interfaz. 
 
-    page.add(Titulo(), SelColores)
-    page.add(ft.Divider(opacity=0, height=25), ft.Row([Menu], alignment=MainAxisAlignment.CENTER), ft.Divider(opacity=0,))
+    page.add(Titulo())
+    page.add(ft.Divider(opacity=0, height=25), Menu, ft.Divider(opacity=0,))
     page.add(Imagen)
     page.add(ft.Divider(opacity=0, height=25))
     page.add(Selector)
@@ -711,6 +740,7 @@ def main(page: ft.Page):
                               
                               alignment=MainAxisAlignment.CENTER), 
                               border_radius=5))
+    page.add(Boton_Introducir)
     
 
 
