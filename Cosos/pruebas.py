@@ -57,14 +57,22 @@ def main(page: ft.Page):
         # Es lo que hace cada condicional a continuación:
 
         if e.control.value == "1": 
-
             Menu.controls = [ft.VerticalDivider(width=415, opacity=0), 
                              S1, 
                              ft.VerticalDivider(width=50, opacity=0), 
                              S2, 
                              ft.VerticalDivider(width=120, opacity=0), 
                              SMultiplicador_3]
-            
+            B_1.bgcolor=C_Blanco[0]
+            B_2.bgcolor=C_Blanco[0]
+            BM_3.bgcolor=C_Blanco[0]
+
+            Salida_de_C1.value = " "
+            Salida_de_C2.value = " "
+            Salida_de_C3.value = " "
+            Salida_de_M.value = " "
+            Salida_de_Tol.value = " "
+            Salida_de_TCR.value = " "
             Colores.controls = [ft.VerticalDivider(width=160, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=55, opacity=0),
@@ -72,6 +80,7 @@ def main(page: ft.Page):
                                 ft.VerticalDivider(width=130, opacity=0),
                                 BM_3
                                 ]
+            
             
             page.update()
             
@@ -85,7 +94,17 @@ def main(page: ft.Page):
                              SMultiplicador_4, 
                              ft.VerticalDivider(width=100, opacity=0), 
                              STolerancia]
-            
+            B_1.bgcolor=C_Blanco[0]
+            B_2.bgcolor=C_Blanco[0]
+            BM_4.bgcolor=C_Blanco[0]
+            B_T.bgcolor=C_Blanco[0]
+
+            Salida_de_C1.value = " "
+            Salida_de_C2.value = " "
+            Salida_de_C3.value = " "
+            Salida_de_M.value = " "
+            Salida_de_Tol.value = " "
+            Salida_de_TCR.value = " "
             Colores.controls = [ft.VerticalDivider(width=110, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
@@ -111,6 +130,19 @@ def main(page: ft.Page):
                              ft.VerticalDivider(width=110, opacity=0), 
                              STolerancia]
             
+            B_1.bgcolor=C_Blanco[0]
+            B_2.bgcolor=C_Blanco[0]
+            BM_4.bgcolor=C_Blanco[0]
+            B_3.bgcolor=C_Blanco[0]
+            B_T.bgcolor=C_Blanco[0]
+
+            Salida_de_C1.value = " "
+            Salida_de_C2.value = " "
+            Salida_de_C3.value = " "
+            Salida_de_M.value = " "
+            Salida_de_Tol.value = " "
+            Salida_de_TCR.value = " "
+
             Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
@@ -140,6 +172,20 @@ def main(page: ft.Page):
                              ft.VerticalDivider(width=35, opacity=0),
                              STCR]
             
+            B_1.bgcolor=C_Blanco[0]
+            B_2.bgcolor=C_Blanco[0]
+            B_3.bgcolor=C_Blanco[0]
+            BM_4.bgcolor=C_Blanco[0]
+            B_TCR.bgcolor=C_Blanco[0]
+            B_T.bgcolor=C_Blanco[0]
+
+            Salida_de_C1.value = " "
+            Salida_de_C2.value = " "
+            Salida_de_C3.value = " "
+            Salida_de_M.value = " "
+            Salida_de_Tol.value = " "
+            Salida_de_TCR.value = " "
+
             Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=30, opacity=0),
