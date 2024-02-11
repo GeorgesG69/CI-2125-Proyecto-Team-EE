@@ -1,7 +1,5 @@
 import flet as ft
 from flet import *
-from colorama import Back, Fore, init
-init()
 
 
 def main(page: ft.Page):
@@ -9,7 +7,7 @@ def main(page: ft.Page):
     #page.bgcolor = "#1a0f2a" # Color del fondo
     def Titulo():
 
-        Title = ft.Text(value="Calculadora de Resistores", size=30) # Título del centro de la apliacción
+        Title = ft.Text(value="Calculadora de Resistores", size=33, font_family="Times New Roman") # Título del centro de la apliacción
 
         return ft.Row(controls=[Column(controls=[
 
@@ -57,7 +55,6 @@ def main(page: ft.Page):
         # Es lo que hace cada condicional a continuación:
 
         if e.control.value == "1": 
-
             Menu.controls = [ft.VerticalDivider(width=415, opacity=0), 
                              S1, 
                              ft.VerticalDivider(width=50, opacity=0), 
@@ -65,6 +62,17 @@ def main(page: ft.Page):
                              ft.VerticalDivider(width=120, opacity=0), 
                              SMultiplicador_3]
             
+            B_1.bgcolor=C_Blanco[0]
+            B_2.bgcolor=C_Blanco[0]
+            BM_3.bgcolor=C_Blanco[0]
+
+            Salida_de_C1.value = " "
+            Salida_de_C2.value = " "
+            Salida_de_C3.value = " "
+            Salida_de_M.value = " "
+            Salida_de_Tol.value = " "
+            Salida_de_TCR.value = " "
+
             Colores.controls = [ft.VerticalDivider(width=160, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=55, opacity=0),
@@ -72,6 +80,7 @@ def main(page: ft.Page):
                                 ft.VerticalDivider(width=130, opacity=0),
                                 BM_3
                                 ]
+            
             
             page.update()
             
@@ -86,6 +95,18 @@ def main(page: ft.Page):
                              ft.VerticalDivider(width=100, opacity=0), 
                              STolerancia]
             
+            B_1.bgcolor=C_Blanco[0]
+            B_2.bgcolor=C_Blanco[0]
+            BM_4.bgcolor=C_Blanco[0]
+            B_T.bgcolor=C_Blanco[0]
+
+            Salida_de_C1.value = " "
+            Salida_de_C2.value = " "
+            Salida_de_C3.value = " "
+            Salida_de_M.value = " "
+            Salida_de_Tol.value = " "
+            Salida_de_TCR.value = " "
+
             Colores.controls = [ft.VerticalDivider(width=110, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
@@ -111,6 +132,19 @@ def main(page: ft.Page):
                              ft.VerticalDivider(width=110, opacity=0), 
                              STolerancia]
             
+            B_1.bgcolor=C_Blanco[0]
+            B_2.bgcolor=C_Blanco[0]
+            BM_4.bgcolor=C_Blanco[0]
+            B_3.bgcolor=C_Blanco[0]
+            B_T.bgcolor=C_Blanco[0]
+
+            Salida_de_C1.value = " "
+            Salida_de_C2.value = " "
+            Salida_de_C3.value = " "
+            Salida_de_M.value = " "
+            Salida_de_Tol.value = " "
+            Salida_de_TCR.value = " "
+
             Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
@@ -140,6 +174,20 @@ def main(page: ft.Page):
                              ft.VerticalDivider(width=35, opacity=0),
                              STCR]
             
+            B_1.bgcolor=C_Blanco[0]
+            B_2.bgcolor=C_Blanco[0]
+            B_3.bgcolor=C_Blanco[0]
+            BM_4.bgcolor=C_Blanco[0]
+            B_TCR.bgcolor=C_Blanco[0]
+            B_T.bgcolor=C_Blanco[0]
+
+            Salida_de_C1.value = " "
+            Salida_de_C2.value = " "
+            Salida_de_C3.value = " "
+            Salida_de_M.value = " "
+            Salida_de_Tol.value = " "
+            Salida_de_TCR.value = " "
+
             Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=30, opacity=0),
@@ -221,7 +269,7 @@ def main(page: ft.Page):
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
 
-    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER, size=20)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
+    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER, size=22, color="red", weight=FontWeight.BOLD)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
 
     S1 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
                                                       

@@ -1,7 +1,5 @@
 import flet as ft
 from flet import *
-from colorama import Back, Fore, init
-init()
 
 
 def main(page: ft.Page):
@@ -9,7 +7,7 @@ def main(page: ft.Page):
     #page.bgcolor = "#1a0f2a" # Color del fondo
     def Titulo():
 
-        Title = ft.Text(value="Calculadora de Resistores", size=30) # Título del centro de la apliacción
+        Title = ft.Text(value="Calculadora de Resistores", size=33, font_family="Times New Roman") # Título del centro de la apliacción
 
         return ft.Row(controls=[Column(controls=[
 
@@ -108,7 +106,7 @@ def main(page: ft.Page):
             Salida_de_M.value = " "
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
-            
+
             Colores.controls = [ft.VerticalDivider(width=110, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
@@ -271,7 +269,7 @@ def main(page: ft.Page):
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
 
-    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER, size=20)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
+    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras", width=page.width, text_align=TextAlign.CENTER, size=22, color="red", weight=FontWeight.BOLD)], expand=True, style=ft.MenuStyle(alignment=ft.alignment.center_right))
 
     S1 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
                                                       
