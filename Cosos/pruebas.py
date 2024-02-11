@@ -63,6 +63,7 @@ def main(page: ft.Page):
                              S2, 
                              ft.VerticalDivider(width=120, opacity=0), 
                              SMultiplicador_3]
+            
             B_1.bgcolor=C_Blanco[0]
             B_2.bgcolor=C_Blanco[0]
             BM_3.bgcolor=C_Blanco[0]
@@ -73,6 +74,7 @@ def main(page: ft.Page):
             Salida_de_M.value = " "
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
+
             Colores.controls = [ft.VerticalDivider(width=160, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=55, opacity=0),
@@ -94,6 +96,7 @@ def main(page: ft.Page):
                              SMultiplicador_4, 
                              ft.VerticalDivider(width=100, opacity=0), 
                              STolerancia]
+            
             B_1.bgcolor=C_Blanco[0]
             B_2.bgcolor=C_Blanco[0]
             BM_4.bgcolor=C_Blanco[0]
@@ -105,6 +108,7 @@ def main(page: ft.Page):
             Salida_de_M.value = " "
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
+            
             Colores.controls = [ft.VerticalDivider(width=110, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
