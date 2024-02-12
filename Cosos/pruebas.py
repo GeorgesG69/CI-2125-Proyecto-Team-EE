@@ -740,7 +740,7 @@ def main(page: ft.Page):
                               
                               alignment=MainAxisAlignment.CENTER), 
                               border_radius=5))
-    page.add(Boton_Introducir)
+    page.add(ft.Row([Boton_Introducir], alignment=MainAxisAlignment.CENTER))
     
 
 

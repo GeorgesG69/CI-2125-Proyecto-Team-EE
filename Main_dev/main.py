@@ -36,11 +36,11 @@ def main(page: ft.Page):
     # Bandas
 
     B_1 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
-    B_2 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
-    B_3 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    B_2 = ft.Container(bgcolor="#ffffff", width=15, height=120, border=ft.border.all(2, "#000000"), )
+    B_3 = ft.Container(bgcolor="#ffffff", width=15, height=120, border=ft.border.all(2, "#000000"), )
     B_4 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
-    BM_3 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
-    BM_4 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    BM_3 = ft.Container(bgcolor="#ffffff", width=15, height=120, border=ft.border.all(2, "#000000"), )
+    BM_4 = ft.Container(bgcolor="#ffffff", width=15, height=120, border=ft.border.all(2, "#000000"), )
     B_T = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
     B_TCR = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
 
@@ -75,7 +75,9 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
-            Colores.controls = [ft.VerticalDivider(width=160, opacity=0),
+            B_1.height = 120
+
+            Colores.controls = [ft.VerticalDivider(width=140, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=55, opacity=0),
                                 B_2,
@@ -109,7 +111,9 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
-            Colores.controls = [ft.VerticalDivider(width=110, opacity=0),
+            B_1.height = 170
+
+            Colores.controls = [ft.VerticalDivider(width=90, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
                                 B_2,
@@ -147,7 +151,9 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
-            Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
+            B_1.height = 170
+
+            Colores.controls = [ft.VerticalDivider(width=50, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=60, opacity=0),
                                 B_2,
@@ -189,6 +195,8 @@ def main(page: ft.Page):
             Salida_de_M.value = " "
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
+
+            B_1.height = 170
 
             Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
                                 B_1,
@@ -659,12 +667,17 @@ def main(page: ft.Page):
      
     IMG_R = ft.Image(src="Resistor 2.png", scale=1.25) # Dibujo del resistor
 
-    perol = ft.canvas.Rect(0, -15, 573, 170, border_radius=60, paint=ft.Paint(color="#925219"))
+    Perol_Izq = ft.canvas.Rect(0, -15, 120, 170, border_radius=20, paint=ft.Paint(color="#925219"))
+    Perol_Cen = ft.canvas.Rect(0, 10, 514, 120, border_radius=20, paint=ft.Paint(color="#925219"))
+    Perol_Der = ft.canvas.Rect(410, -15, 120, 170, border_radius=20, paint=ft.Paint(color="#925219"))
     Contactos = ft.canvas.Rect(-50, 60, 677, 28, border_radius=0, paint=ft.Paint(color="#565656"))
 
     Imagen = ft.Row(controls=[ft.Stack(controls=[      # Fila que contiene un "Stack", un elemento que sirve para poner cosas
                                                        # encima de otras
-        ft.canvas.Canvas([Contactos, perol], expand=False, scale=1.25),
+        ft.canvas.Canvas([Contactos, 
+                          Perol_Izq, 
+                          Perol_Cen, 
+                          Perol_Der], expand=False, scale=1.25),
         Colores,
         
     ],)], height=174, width=677)
@@ -697,11 +710,17 @@ def main(page: ft.Page):
 
     # Parte pa que el usuario introduzca un valor
 
-    Boton_Introducir = ft.ElevatedButton(text="Introducir valor manualmente")
+    def Intoudir_Valor_Manual(e):
+        if e.control.value == True:
+            print("sis")
+        elif e.control.value == False:
+            print("nor")
+
+    Boton_Introducir = ft.Switch(label="Introducir valor manualmente", on_change=Intoudir_Valor_Manual)
     Entrada_valor = ft.TextField(label="Valor en Ω", hint_text="Introduzca un valor en Ω")
-    Entrada_Multiplicador = ""
-    Entrada_Tolerancia = ""
-    Entrada_TCR = ""
+    Entrada_Multiplicador = ft.TextField(label="Multiplicador", hint_text="Introduzca el multiplicador")
+    Entrada_Tolerancia = ft.TextField(label="Tolerancia", hint_text="Introduzca la tolerancia")
+    Entrada_TCR = ft.TextField(label="TCR", hint_text="Introduzca el tcr")
     
     
     # Acá se añaden los elementos a la interfaz. 
@@ -721,6 +740,7 @@ def main(page: ft.Page):
                               
                               alignment=MainAxisAlignment.CENTER), 
                               border_radius=5))
+    page.add(ft.Row([Boton_Introducir], alignment=MainAxisAlignment.CENTER))
     
 
 
