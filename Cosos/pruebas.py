@@ -711,16 +711,44 @@ def main(page: ft.Page):
     # Parte pa que el usuario introduzca un valor
 
     def Intoudir_Valor_Manual(e):
-        if e.control.value == True:
-            print("sis")
-        elif e.control.value == False:
-            print("nor")
 
-    Boton_Introducir = ft.Switch(label="Introducir valor manualmente", on_change=Intoudir_Valor_Manual)
+        if e.control.value == True:
+            
+            Fila_Entrada.visible = True
+            
+            Fila_Boton_Int.visible = True
+            
+            page.update()
+
+        else:
+            
+            Fila_Entrada.visible = False
+            
+            Fila_Boton_Int.visible = False
+
+            page.update()
+
+    Switch_Introducir = ft.Switch(label="Introducir valor manualmente", on_change=Intoudir_Valor_Manual)
     Entrada_valor = ft.TextField(label="Valor en Ω", hint_text="Introduzca un valor en Ω")
     Entrada_Multiplicador = ft.TextField(label="Multiplicador", hint_text="Introduzca el multiplicador")
     Entrada_Tolerancia = ft.TextField(label="Tolerancia", hint_text="Introduzca la tolerancia")
-    Entrada_TCR = ft.TextField(label="TCR", hint_text="Introduzca el tcr")
+    Entrada_TCR = ft.TextField(label="TCR", hint_text="Introduzca el TCR")
+
+    Fila_Entrada = ft.Row(controls=[Entrada_valor,
+                                     Entrada_Multiplicador,
+                                     Entrada_Tolerancia,
+                                     Entrada_TCR], 
+                                     
+                                     alignment=MainAxisAlignment.CENTER, visible=False)
+    
+    Fila_Boton_Int = ft.ResponsiveRow(controls=[ft.Container(content=ft.FloatingActionButton(content=ft.Text(value="Calcular", size=20), 
+                                                                                             bgcolor="transparent", 
+                                                                                             shape=RoundedRectangleBorder(radius=5)), 
+
+                                                             border=ft.border.all(2, "#ffffff"), 
+                                                             border_radius=5)], 
+                                      
+                                      alignment=MainAxisAlignment.CENTER, visible=False)
     
     
     # Acá se añaden los elementos a la interfaz. 
@@ -740,7 +768,8 @@ def main(page: ft.Page):
                               
                               alignment=MainAxisAlignment.CENTER), 
                               border_radius=5))
-    page.add(ft.Row([Boton_Introducir], alignment=MainAxisAlignment.CENTER))
+    page.add(ft.Row([Switch_Introducir], alignment=MainAxisAlignment.CENTER))
+    page.add(Fila_Entrada, Fila_Boton_Int)
     
 
 
