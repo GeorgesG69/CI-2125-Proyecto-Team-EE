@@ -279,7 +279,14 @@ def main(page: ft.Page):
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
 
-    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione la cantidad de barras.", text_align=TextAlign.CENTER, size=22, color="red", weight=FontWeight.BOLD)], style=ft.MenuStyle(alignment=ft.alignment.center))
+    Menu = ft.MenuBar(controls=[ft.Text(value="Seleccione el modo de entrada.", 
+                                        text_align=TextAlign.CENTER, 
+                                        size=22, 
+                                        color="red", 
+                                        weight=FontWeight.BOLD, 
+                                        italic=True)], 
+                                        
+                                        style=ft.MenuStyle(alignment=ft.alignment.center))
 
     S1 = ft.SubmenuButton(controls=[ft.MenuItemButton(content=ft.Text(key=C_Negro), 
                                                       
@@ -765,7 +772,12 @@ def main(page: ft.Page):
 
         else:
 
-            Menu.controls = [ft.Text(value="Seleccione la cantidad de barras.", text_align=TextAlign.CENTER, size=22, color="red", weight=FontWeight.BOLD)]
+            Menu.controls = [ft.Text(value="Seleccione el modo de entrada.", 
+                                     text_align=TextAlign.CENTER, 
+                                     size=22, 
+                                     color="red", 
+                                     weight=FontWeight.BOLD, 
+                                     italic=True)]
             Colores.controls = []
 
             B_1.bgcolor=C_Blanco[0]
@@ -775,6 +787,8 @@ def main(page: ft.Page):
             B_TCR.bgcolor=C_Blanco[0]
             B_T.bgcolor=C_Blanco[0]
 
+            B_1.height = 170
+
             Salida_de_C1.value = " "
             Salida_de_C2.value = " "
             Salida_de_C3.value = " "
@@ -782,7 +796,10 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
-            B_1.height = 170
+            Entrada_valor.value = ""
+            Entrada_Multiplicador.value = None
+            Entrada_Tolerancia.value = None
+            Entrada_TCR.value = None
             
             Fila_Entrada.visible = False
             
@@ -794,39 +811,52 @@ def main(page: ft.Page):
 
     def Calcular_Valor_Manual(e):
         
-        if Entrada_valor.value != "" and Entrada_Multiplicador.value != "":
+        
+        if Entrada_valor.value != "" and Entrada_Multiplicador.value != None and Entrada_Tolerancia.value != None and Entrada_TCR.value != None:
 
-            try:
-                Entrada_valor.error_text = ""
-            except:
-                ()
+            
+            Entrada_valor.error_text = ""
+            Entrada_Multiplicador.error_text = ""
+            Entrada_Tolerancia.error_text = ""
+            Entrada_TCR.error_text = ""
+            
             B_1.bgcolor = Lista_Colores[int(Entrada_valor.value[0])][0]
             B_2.bgcolor = Lista_Colores[int(Entrada_valor.value[1])][0]
             B_3.bgcolor = Lista_Colores[int(Entrada_valor.value[2])][0]
             BM_4.bgcolor = Lista_Colores[int(Entrada_Multiplicador.value)][0]
+            B_T.bgcolor = Lista_Colores[int(Entrada_Tolerancia.value)][0]
+            B_TCR.bgcolor = Lista_Colores[int(Entrada_TCR.value)][0]
 
             Salida_de_C1.value = f"{Entrada_valor.value[0]}"
             Salida_de_C2.value = f"{Entrada_valor.value[1]}"
             Salida_de_C3.value = f"{Entrada_valor.value[2]}"
             Salida_de_M.value = f"{Lista_Colores[int(Entrada_Multiplicador.value)][4]}"
-            Salida_de_Tol.value = " "
-            Salida_de_TCR.value = " "
+            Salida_de_Tol.value = f"{Lista_Colores[int(Entrada_Tolerancia.value)][5]}"
+            Salida_de_TCR.value = f"{Lista_Colores[int(Entrada_TCR.value)][6]}"
 
             page.update()
 
+        
+
         else:
-            Entrada_valor.error_text = "Introduzca un valor"
-            Entrada_Multiplicador.error_text = "Introduzca el valor"
+
+            Entrada_valor.error_text = "Introduzca un valor válido"
+            Entrada_Multiplicador.error_text = "Introduzca el valor válido"
+            Entrada_Tolerancia.error_text = "Introduzca un valor válido"
+            Entrada_TCR.error_text = "Introduzca un valor válido"
 
             page.update()
 
     
 
     Switch_Introducir = ft.Switch(label="Introducir un valor", on_change=Intoudir_Valor_Manual)
-    Entrada_valor = ft.TextField(label="Valor en Ω", hint_text="Introduzca un valor en Ω", 
+    Entrada_valor = ft.TextField(label="Valor", hint_text="Introduzca un valor", 
                                  max_length=3, 
                                  multiline=False, 
-                                 )
+                                 keyboard_type=ft.KeyboardType.NUMBER,
+                                 input_filter=ft.NumbersOnlyInputFilter(), 
+                                 text_align=ft.TextAlign.CENTER,
+                                 width=200)
     
     Entrada_Multiplicador = ft.Dropdown(label="Multiplicador",
                                         options=[
@@ -844,9 +874,44 @@ def main(page: ft.Page):
                                             ft.dropdown.Option(text="x0,1", key=10),
                                             ft.dropdown.Option(text="x0,01", key=11),
 
-                                        ])
-    Entrada_Tolerancia = ft.TextField(label="Tolerancia", hint_text="Introduzca la tolerancia")
-    Entrada_TCR = ft.TextField(label="TCR", hint_text="Introduzca el TCR")
+                                        ], width=200)
+    
+    Entrada_Tolerancia = ft.Dropdown(label="Tolerancia",
+                                        options=[
+                                            
+                                            ft.dropdown.Option(text="± 0%", key=0),
+                                            ft.dropdown.Option(text="± 1%", key=1),
+                                            ft.dropdown.Option(text="± 2%", key=2),
+                                            ft.dropdown.Option(text="± 0,05%", key=3),
+                                            ft.dropdown.Option(text="± 0,02%", key=4),
+                                            ft.dropdown.Option(text="± 0,5%", key=5),
+                                            ft.dropdown.Option(text="± 0,25%", key=6),
+                                            ft.dropdown.Option(text="± 0,1%", key=7),
+                                            ft.dropdown.Option(text="± 0,01%", key=8),
+                                            ft.dropdown.Option(text="± 5%", key=10),
+                                            ft.dropdown.Option(text="± 10%", key=11),
+                                            
+
+                                        ], width=200)
+    
+    Entrada_TCR = ft.Dropdown(label="TCR",
+                                        options=[
+
+                                            ft.dropdown.Option(text="0 ppm/k", key=9),
+                                            ft.dropdown.Option(text="250 ppm/k", key=0),
+                                            ft.dropdown.Option(text="100 ppm/k", key=1),
+                                            ft.dropdown.Option(text="50 ppm/k", key=2),
+                                            ft.dropdown.Option(text="15 ppm/k", key=3),
+                                            ft.dropdown.Option(text="25 ppm/k", key=4),
+                                            ft.dropdown.Option(text="20 ppm/k", key=5),
+                                            ft.dropdown.Option(text="10 ppm/k", key=6),
+                                            ft.dropdown.Option(text="5 ppm/k", key=7),
+                                            ft.dropdown.Option(text="1 ppm/k", key=8),
+                                            
+                                            
+                                            
+                                            
+                                        ], width=200)
 
     Fila_Entrada = ft.Row(controls=[Entrada_valor,
                                      Entrada_Multiplicador,
@@ -855,7 +920,7 @@ def main(page: ft.Page):
                                      
                                      alignment=MainAxisAlignment.CENTER, visible=False)
     
-    Fila_Boton_Int = ft.ResponsiveRow(controls=[ft.Container(content=ft.FloatingActionButton(content=ft.Text(value="Calcular", size=20), 
+    Fila_Boton_Int = ft.ResponsiveRow(controls=[ft.Container(content=ft.FloatingActionButton(content=ft.Text(value="Mostrar código", size=20), 
                                                                                              bgcolor="transparent", 
                                                                                              shape=RoundedRectangleBorder(radius=5),
                                                                                              on_click=Calcular_Valor_Manual), 
@@ -869,11 +934,15 @@ def main(page: ft.Page):
     # Acá se añaden los elementos a la interfaz. 
 
     page.add(Titulo())
-    page.add(ft.Divider(opacity=0, height=25), Menu, ft.Divider(opacity=0,))
-    page.add(Imagen)
-    page.add(ft.Divider(opacity=0, height=25))
-    page.add(Selector)
-    page.add(ft.Container(content=ft.Row(controls=[Resultado, 
+    page.add(ft.Divider(opacity=0, height=1), 
+             Menu, 
+             ft.Divider(opacity=0, height=10), 
+             Imagen,
+             ft.Divider(opacity=0, height=25),
+             Selector,
+             ft.Container(content=ft.Row(controls=[
+                              
+                              Resultado,                      
                               Salida_de_C1, 
                               Salida_de_C2, 
                               Salida_de_C3,
@@ -882,10 +951,10 @@ def main(page: ft.Page):
                               Salida_de_TCR], 
                               
                               alignment=MainAxisAlignment.CENTER), 
-                              border_radius=5))
-    page.add(ft.Row([Switch_Introducir], alignment=MainAxisAlignment.CENTER))
-    page.add(Fila_Entrada, Fila_Boton_Int)
-    
+                              border_radius=5),
 
+                              ft.Row([Switch_Introducir], alignment=MainAxisAlignment.CENTER),
+                              Fila_Entrada, 
+                              Fila_Boton_Int)
 
 ft.app(target=main) # Arranque de la aplicación
