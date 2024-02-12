@@ -274,7 +274,7 @@ def main(page: ft.Page):
         page.update()
 
 
-    Resultado = ft.Text(value="Resultados: ", size=30) # Título de los resultados
+    Resultado = ft.Text(value="Resultado: ", size=30) # Título de los resultados
 
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
@@ -670,7 +670,7 @@ def main(page: ft.Page):
     Perol_Izq = ft.canvas.Rect(0, -15, 120, 170, border_radius=20, paint=ft.Paint(color="#925219"))
     Perol_Cen = ft.canvas.Rect(0, 10, 514, 120, border_radius=20, paint=ft.Paint(color="#925219"))
     Perol_Der = ft.canvas.Rect(410, -15, 120, 170, border_radius=20, paint=ft.Paint(color="#925219"))
-    Contactos = ft.canvas.Rect(-50, 60, 677, 28, border_radius=0, paint=ft.Paint(color="#565656"))
+    Contactos = ft.canvas.Rect(-50, 60, 630, 28, border_radius=0, paint=ft.Paint(color="#565656"))
 
     Imagen = ft.Row(controls=[ft.Stack(controls=[      # Fila que contiene un "Stack", un elemento que sirve para poner cosas
                                                        # encima de otras
@@ -713,6 +713,49 @@ def main(page: ft.Page):
     def Intoudir_Valor_Manual(e):
 
         if e.control.value == True:
+
+            Menu.controls = [
+                             S1,
+                             ft.VerticalDivider(width=20, opacity=0), 
+                             S2, 
+                             ft.VerticalDivider(width=20, opacity=0),
+                             S3, 
+                             ft.VerticalDivider(width=50, opacity=0),
+                             SMultiplicador_4, 
+                             ft.VerticalDivider(width=65, opacity=0), 
+                             STolerancia, 
+                             ft.VerticalDivider(width=35, opacity=0),
+                             STCR]
+            
+            B_1.bgcolor=C_Blanco[0]
+            B_2.bgcolor=C_Blanco[0]
+            B_3.bgcolor=C_Blanco[0]
+            BM_4.bgcolor=C_Blanco[0]
+            B_TCR.bgcolor=C_Blanco[0]
+            B_T.bgcolor=C_Blanco[0]
+
+            Salida_de_C1.value = " "
+            Salida_de_C2.value = " "
+            Salida_de_C3.value = " "
+            Salida_de_M.value = " "
+            Salida_de_Tol.value = " "
+            Salida_de_TCR.value = " "
+
+            B_1.height = 170
+
+            Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
+                                B_1,
+                                ft.VerticalDivider(width=30, opacity=0),
+                                B_2,
+                                ft.VerticalDivider(width=30, opacity=0),
+                                B_3,
+                                ft.VerticalDivider(width=70, opacity=0),
+                                BM_4,
+                                ft.VerticalDivider(width=90, opacity=0),
+                                B_T,
+                                ft.VerticalDivider(width=40, opacity=0),
+                                B_TCR
+                                ]
             
             Fila_Entrada.visible = True
             
@@ -721,6 +764,25 @@ def main(page: ft.Page):
             page.update()
 
         else:
+
+            Menu.controls = [ft.Text(value="Seleccione la cantidad de barras.", text_align=TextAlign.CENTER, size=22, color="red", weight=FontWeight.BOLD)]
+            Colores.controls = []
+
+            B_1.bgcolor=C_Blanco[0]
+            B_2.bgcolor=C_Blanco[0]
+            B_3.bgcolor=C_Blanco[0]
+            BM_4.bgcolor=C_Blanco[0]
+            B_TCR.bgcolor=C_Blanco[0]
+            B_T.bgcolor=C_Blanco[0]
+
+            Salida_de_C1.value = " "
+            Salida_de_C2.value = " "
+            Salida_de_C3.value = " "
+            Salida_de_M.value = " "
+            Salida_de_Tol.value = " "
+            Salida_de_TCR.value = " "
+
+            B_1.height = 170
             
             Fila_Entrada.visible = False
             
@@ -728,9 +790,61 @@ def main(page: ft.Page):
 
             page.update()
 
-    Switch_Introducir = ft.Switch(label="Introducir valor manualmente", on_change=Intoudir_Valor_Manual)
-    Entrada_valor = ft.TextField(label="Valor en Ω", hint_text="Introduzca un valor en Ω")
-    Entrada_Multiplicador = ft.TextField(label="Multiplicador", hint_text="Introduzca el multiplicador")
+    Lista_Colores = [C_Negro, C_Marron, C_Rojo, C_Naranja, C_Amarillo, C_Verde, C_Azul, C_Violeta, C_Gris, C_Blanco, C_Dorado, C_Plateado]
+
+    def Calcular_Valor_Manual(e):
+        
+        if Entrada_valor.value != "" and Entrada_Multiplicador.value != "":
+
+            try:
+                Entrada_valor.error_text = ""
+            except:
+                ()
+            B_1.bgcolor = Lista_Colores[int(Entrada_valor.value[0])][0]
+            B_2.bgcolor = Lista_Colores[int(Entrada_valor.value[1])][0]
+            B_3.bgcolor = Lista_Colores[int(Entrada_valor.value[2])][0]
+            BM_4.bgcolor = Lista_Colores[int(Entrada_Multiplicador.value)][0]
+
+            Salida_de_C1.value = f"{Entrada_valor.value[0]}"
+            Salida_de_C2.value = f"{Entrada_valor.value[1]}"
+            Salida_de_C3.value = f"{Entrada_valor.value[2]}"
+            Salida_de_M.value = f"{Lista_Colores[int(Entrada_Multiplicador.value)][4]}"
+            Salida_de_Tol.value = " "
+            Salida_de_TCR.value = " "
+
+            page.update()
+
+        else:
+            Entrada_valor.error_text = "Introduzca un valor"
+            Entrada_Multiplicador.error_text = "Introduzca el valor"
+
+            page.update()
+
+    
+
+    Switch_Introducir = ft.Switch(label="Introducir un valor", on_change=Intoudir_Valor_Manual)
+    Entrada_valor = ft.TextField(label="Valor en Ω", hint_text="Introduzca un valor en Ω", 
+                                 max_length=3, 
+                                 multiline=False, 
+                                 )
+    
+    Entrada_Multiplicador = ft.Dropdown(label="Multiplicador",
+                                        options=[
+
+                                            ft.dropdown.Option(text="x1", key=0),
+                                            ft.dropdown.Option(text="x10", key=1),
+                                            ft.dropdown.Option(text="x10^2", key=2),
+                                            ft.dropdown.Option(text="x10^3", key=3),
+                                            ft.dropdown.Option(text="x10^4", key=4),
+                                            ft.dropdown.Option(text="x10^5", key=5),
+                                            ft.dropdown.Option(text="x10^6", key=6),
+                                            ft.dropdown.Option(text="x10^7", key=7),
+                                            ft.dropdown.Option(text="x10^8", key=8),
+                                            ft.dropdown.Option(text="x10^9", key=9),
+                                            ft.dropdown.Option(text="x0,1", key=10),
+                                            ft.dropdown.Option(text="x0,01", key=11),
+
+                                        ])
     Entrada_Tolerancia = ft.TextField(label="Tolerancia", hint_text="Introduzca la tolerancia")
     Entrada_TCR = ft.TextField(label="TCR", hint_text="Introduzca el TCR")
 
@@ -743,7 +857,8 @@ def main(page: ft.Page):
     
     Fila_Boton_Int = ft.ResponsiveRow(controls=[ft.Container(content=ft.FloatingActionButton(content=ft.Text(value="Calcular", size=20), 
                                                                                              bgcolor="transparent", 
-                                                                                             shape=RoundedRectangleBorder(radius=5)), 
+                                                                                             shape=RoundedRectangleBorder(radius=5),
+                                                                                             on_click=Calcular_Valor_Manual), 
 
                                                              border=ft.border.all(2, "#ffffff"), 
                                                              border_radius=5)], 
