@@ -683,7 +683,7 @@ def main(page: ft.Page):
 
                                                       content=ft.Text("TCR"))
      
-    IMG_R = ft.Image(src="Resistor 2.png", scale=1.25) # Dibujo del resistor
+    # Dibujo del resistor
 
     Perol_Izq = ft.canvas.Rect(0, -15, 120, 170, border_radius=20, paint=ft.Paint(color="#925219"))
     Perol_Cen = ft.canvas.Rect(0, 10, 514, 120, border_radius=20, paint=ft.Paint(color="#925219"))
