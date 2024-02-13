@@ -5,7 +5,6 @@ from flet import *
 def main(page: ft.Page):
     page.title = "Calculadora de Resistores" # Título del borde de la ventana
     page.horizontal_alignment = CrossAxisAlignment.CENTER
-    
 
     def Titulo():
 
@@ -42,7 +41,7 @@ def main(page: ft.Page):
     B_4 = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
     BM_3 = ft.Container(bgcolor="#ffffff", width=15, height=120, border=ft.border.all(2, "#000000"), )
     BM_4 = ft.Container(bgcolor="#ffffff", width=15, height=120, border=ft.border.all(2, "#000000"), )
-    B_T = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
+    B_T = ft.Container(bgcolor="#ffffff", width=15, height=120, border=ft.border.all(2, "#000000"), )
     B_TCR = ft.Container(bgcolor="#ffffff", width=15, height=170, border=ft.border.all(2, "#000000"), )
 
     # Función para cambiar la cantidad de bandas
@@ -77,10 +76,12 @@ def main(page: ft.Page):
             Salida_de_TCR.value = " "
 
             B_1.height = 120
+            B_T.border = ft.border.all(2, "#000000")
+            B_TCR.border = ft.border.all(2, "#000000")
 
-            Colores.controls = [ft.VerticalDivider(width=140, opacity=0),
+            Colores.controls = [ft.VerticalDivider(width=130, opacity=0),
                                 B_1,
-                                ft.VerticalDivider(width=55, opacity=0),
+                                ft.VerticalDivider(width=70, opacity=0),
                                 B_2,
                                 ft.VerticalDivider(width=130, opacity=0),
                                 BM_3
@@ -93,11 +94,11 @@ def main(page: ft.Page):
 
             Menu.controls = [
                              S1,
-                             ft.VerticalDivider(width=50, opacity=0), 
+                             ft.VerticalDivider(width=25, opacity=0), 
                              S2,
-                             ft.VerticalDivider(width=50, opacity=0), 
+                             ft.VerticalDivider(width=40, opacity=0), 
                              SMultiplicador_4, 
-                             ft.VerticalDivider(width=100, opacity=0), 
+                             ft.VerticalDivider(width=40, opacity=0), 
                              STolerancia]
             
             B_1.bgcolor=C_Blanco[0]
@@ -112,15 +113,18 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
-            B_1.height = 170
+            B_T.height = 120
+            B_1.height = 120
+            B_T.border = ft.border.all(2, "#000000")
+            B_TCR.border = ft.border.all(2, "#000000")
 
-            Colores.controls = [ft.VerticalDivider(width=90, opacity=0),
+            Colores.controls = [ft.VerticalDivider(width=130, opacity=0),
                                 B_1,
-                                ft.VerticalDivider(width=60, opacity=0),
+                                ft.VerticalDivider(width=30, opacity=0),
                                 B_2,
                                 ft.VerticalDivider(width=70, opacity=0),
                                 BM_4,
-                                ft.VerticalDivider(width=120, opacity=0),
+                                ft.VerticalDivider(width=67, opacity=0),
                                 B_T
                                 ]
                         
@@ -130,9 +134,9 @@ def main(page: ft.Page):
 
             Menu.controls = [
                              S1,
-                             ft.VerticalDivider(width=60, opacity=0), 
+                             ft.VerticalDivider(width=20, opacity=0), 
                              S2,
-                             ft.VerticalDivider(width=60, opacity=0), 
+                             ft.VerticalDivider(width=20, opacity=0), 
                              S3,
                              ft.VerticalDivider(width=20, opacity=0),
                              SMultiplicador_4, 
@@ -152,17 +156,20 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
+            B_T.height = 170
             B_1.height = 170
+            B_T.border = ft.border.all(2, "#000000")
+            B_TCR.border = ft.border.all(2, "#000000")
 
-            Colores.controls = [ft.VerticalDivider(width=50, opacity=0),
+            Colores.controls = [ft.VerticalDivider(width=80, opacity=0),
                                 B_1,
-                                ft.VerticalDivider(width=60, opacity=0),
+                                ft.VerticalDivider(width=30, opacity=0),
                                 B_2,
-                                ft.VerticalDivider(width=60, opacity=0),
+                                ft.VerticalDivider(width=30, opacity=0),
                                 B_3,
-                                ft.VerticalDivider(width=60, opacity=0),
+                                ft.VerticalDivider(width=40, opacity=0),
                                 BM_4,
-                                ft.VerticalDivider(width=120, opacity=0),
+                                ft.VerticalDivider(width=140, opacity=0),
                                 B_T
                                 ]
             
@@ -172,13 +179,13 @@ def main(page: ft.Page):
             
             Menu.controls = [
                              S1,
-                             ft.VerticalDivider(width=20, opacity=0), 
+                             ft.VerticalDivider(width=40, opacity=0), 
                              S2, 
-                             ft.VerticalDivider(width=20, opacity=0),
+                             ft.VerticalDivider(width=10, opacity=0),
                              S3, 
-                             ft.VerticalDivider(width=50, opacity=0),
+                             ft.VerticalDivider(width=20, opacity=0),
                              SMultiplicador_4, 
-                             ft.VerticalDivider(width=65, opacity=0), 
+                             ft.VerticalDivider(width=30, opacity=0), 
                              STolerancia, 
                              ft.VerticalDivider(width=35, opacity=0),
                              STCR]
@@ -197,17 +204,20 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
+            B_T.height = 120
             B_1.height = 170
+            B_T.border = ft.border.all(2, "#000000")
+            B_TCR.border = ft.border.all(2, "#000000")
 
             Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
                                 B_1,
-                                ft.VerticalDivider(width=30, opacity=0),
+                                ft.VerticalDivider(width=45, opacity=0),
                                 B_2,
                                 ft.VerticalDivider(width=30, opacity=0),
                                 B_3,
-                                ft.VerticalDivider(width=70, opacity=0),
+                                ft.VerticalDivider(width=40, opacity=0),
                                 BM_4,
-                                ft.VerticalDivider(width=90, opacity=0),
+                                ft.VerticalDivider(width=70, opacity=0),
                                 B_T,
                                 ft.VerticalDivider(width=40, opacity=0),
                                 B_TCR
@@ -718,19 +728,19 @@ def main(page: ft.Page):
 
     # Parte pa que el usuario introduzca un valor
 
-    def Intoudir_Valor_Manual(e):
+    def input_Valor_Manual(e):
 
         if e.control.value == True:
 
             Menu.controls = [
                              S1,
-                             ft.VerticalDivider(width=20, opacity=0), 
+                             ft.VerticalDivider(width=40, opacity=0), 
                              S2, 
-                             ft.VerticalDivider(width=20, opacity=0),
+                             ft.VerticalDivider(width=10, opacity=0),
                              S3, 
-                             ft.VerticalDivider(width=50, opacity=0),
+                             ft.VerticalDivider(width=20, opacity=0),
                              SMultiplicador_4, 
-                             ft.VerticalDivider(width=65, opacity=0), 
+                             ft.VerticalDivider(width=30, opacity=0), 
                              STolerancia, 
                              ft.VerticalDivider(width=35, opacity=0),
                              STCR]
@@ -741,8 +751,6 @@ def main(page: ft.Page):
             BM_4.bgcolor=C_Blanco[0]
             B_TCR.bgcolor=C_Blanco[0]
             B_T.bgcolor=C_Blanco[0]
-            B_T.border = ft.border.all(2, "#000000")
-            B_TCR.border = ft.border.all(2, "#000000")
 
             Salida_de_C1.value = " "
             Salida_de_C2.value = " "
@@ -751,21 +759,26 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
+            B_T.height = 120
             B_1.height = 170
+            B_T.border = ft.border.all(2, "#000000")
+            B_TCR.border = ft.border.all(2, "#000000")
 
             Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
                                 B_1,
-                                ft.VerticalDivider(width=30, opacity=0),
+                                ft.VerticalDivider(width=45, opacity=0),
                                 B_2,
                                 ft.VerticalDivider(width=30, opacity=0),
                                 B_3,
-                                ft.VerticalDivider(width=70, opacity=0),
+                                ft.VerticalDivider(width=40, opacity=0),
                                 BM_4,
-                                ft.VerticalDivider(width=90, opacity=0),
+                                ft.VerticalDivider(width=70, opacity=0),
                                 B_T,
                                 ft.VerticalDivider(width=40, opacity=0),
                                 B_TCR
                                 ]
+            
+
             
             Fila_Entrada.visible = True
             
@@ -872,33 +885,33 @@ def main(page: ft.Page):
 
     
 
-    Switch_Introducir = ft.Switch(label="Introducir un valor", on_change=Intoudir_Valor_Manual)
+    Switch_Introducir = ft.Switch(label="Introducir un valor", on_change=input_Valor_Manual)
     Info_Función = ft.Tooltip(message="Introducir un valor manualmente para ver el código de colores",
                               content=ft.IconButton(icon=ft.icons.QUESTION_MARK))
-    Entrada_valor = ft.TextField(label="Valor", hint_text="Introduzca un valor", 
+    Entrada_valor = ft.TextField(label="Valor", hint_text="Formato: 000", 
                                  max_length=3, 
                                  multiline=False, 
                                  keyboard_type=ft.KeyboardType.NUMBER,
                                  input_filter=ft.NumbersOnlyInputFilter(), 
                                  text_align=ft.TextAlign.CENTER,
                                  width=200,
-                                 counter_text=" ")
+                                 )
     
     Entrada_Multiplicador = ft.Dropdown(label="Multiplicador",
                                         options=[
 
-                                            ft.dropdown.Option(text="x1", key=0),
-                                            ft.dropdown.Option(text="x10", key=1),
-                                            ft.dropdown.Option(text="x10^2", key=2),
-                                            ft.dropdown.Option(text="x10^3", key=3),
-                                            ft.dropdown.Option(text="x10^4", key=4),
-                                            ft.dropdown.Option(text="x10^5", key=5),
-                                            ft.dropdown.Option(text="x10^6", key=6),
-                                            ft.dropdown.Option(text="x10^7", key=7),
-                                            ft.dropdown.Option(text="x10^8", key=8),
-                                            ft.dropdown.Option(text="x10^9", key=9),
-                                            ft.dropdown.Option(text="x0,1", key=10),
-                                            ft.dropdown.Option(text="x0,01", key=11),
+                                            ft.dropdown.Option(text="Ω", key=0),
+                                            ft.dropdown.Option(text="0 Ω ", key=1),
+                                            ft.dropdown.Option(text="00 Ω ", key=2),
+                                            ft.dropdown.Option(text="kΩ", key=3),
+                                            ft.dropdown.Option(text="0 kΩ", key=4),
+                                            ft.dropdown.Option(text="00 kΩ", key=5),
+                                            ft.dropdown.Option(text="MΩ", key=6),
+                                            ft.dropdown.Option(text="0 M ", key=7),
+                                            ft.dropdown.Option(text="00 MΩ", key=8),
+                                            ft.dropdown.Option(text="GΩ", key=9),
+                                            ft.dropdown.Option(text="x0,1Ω", key=10),
+                                            ft.dropdown.Option(text="x0,01Ω", key=11),
 
                                         ], width=200, counter_text=" ")
     
