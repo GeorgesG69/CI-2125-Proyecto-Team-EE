@@ -996,4 +996,4 @@ def main(page: ft.Page):
                               Fila_Entrada, 
                               Fila_Boton_Int)
 
-ft.app(target=main) # Arranque de la aplicación
+ft.app(target=main, view=AppView.WEB_BROWSER) # Arranque de la aplicación
