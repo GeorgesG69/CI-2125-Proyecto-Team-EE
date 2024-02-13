@@ -75,9 +75,9 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
-            
+            B_1.height = 120
 
-            Colores.controls = [ft.VerticalDivider(width=60, opacity=0),
+            Colores.controls = [ft.VerticalDivider(width=130, opacity=0),
                                 B_1,
                                 ft.VerticalDivider(width=70, opacity=0),
                                 B_2,
@@ -92,9 +92,9 @@ def main(page: ft.Page):
 
             Menu.controls = [
                              S1,
-                             ft.VerticalDivider(width=50, opacity=0), 
+                             ft.VerticalDivider(width=25, opacity=0), 
                              S2,
-                             ft.VerticalDivider(width=50, opacity=0), 
+                             ft.VerticalDivider(width=40, opacity=0), 
                              SMultiplicador_4, 
                              ft.VerticalDivider(width=40, opacity=0), 
                              STolerancia]
@@ -112,14 +112,15 @@ def main(page: ft.Page):
             Salida_de_TCR.value = " "
 
             B_T.height = 120
+            B_1.height = 120
 
-            Colores.controls = [ft.VerticalDivider(width=60, opacity=0),
+            Colores.controls = [ft.VerticalDivider(width=130, opacity=0),
                                 B_1,
-                                ft.VerticalDivider(width=60, opacity=0),
+                                ft.VerticalDivider(width=30, opacity=0),
                                 B_2,
                                 ft.VerticalDivider(width=70, opacity=0),
                                 BM_4,
-                                ft.VerticalDivider(width=80, opacity=0),
+                                ft.VerticalDivider(width=67, opacity=0),
                                 B_T
                                 ]
                         
@@ -129,9 +130,9 @@ def main(page: ft.Page):
 
             Menu.controls = [
                              S1,
-                             ft.VerticalDivider(width=60, opacity=0), 
+                             ft.VerticalDivider(width=20, opacity=0), 
                              S2,
-                             ft.VerticalDivider(width=60, opacity=0), 
+                             ft.VerticalDivider(width=20, opacity=0), 
                              S3,
                              ft.VerticalDivider(width=20, opacity=0),
                              SMultiplicador_4, 
@@ -152,16 +153,17 @@ def main(page: ft.Page):
             Salida_de_TCR.value = " "
 
             B_T.height = 170
+            B_1.height = 170
 
-            Colores.controls = [ft.VerticalDivider(width=60, opacity=0),
+            Colores.controls = [ft.VerticalDivider(width=80, opacity=0),
                                 B_1,
-                                ft.VerticalDivider(width=60, opacity=0),
+                                ft.VerticalDivider(width=30, opacity=0),
                                 B_2,
-                                ft.VerticalDivider(width=60, opacity=0),
+                                ft.VerticalDivider(width=30, opacity=0),
                                 B_3,
-                                ft.VerticalDivider(width=60, opacity=0),
+                                ft.VerticalDivider(width=40, opacity=0),
                                 BM_4,
-                                ft.VerticalDivider(width=100, opacity=0),
+                                ft.VerticalDivider(width=140, opacity=0),
                                 B_T
                                 ]
             
@@ -171,13 +173,13 @@ def main(page: ft.Page):
             
             Menu.controls = [
                              S1,
-                             ft.VerticalDivider(width=20, opacity=0), 
+                             ft.VerticalDivider(width=40, opacity=0), 
                              S2, 
-                             ft.VerticalDivider(width=20, opacity=0),
+                             ft.VerticalDivider(width=10, opacity=0),
                              S3, 
-                             ft.VerticalDivider(width=50, opacity=0),
+                             ft.VerticalDivider(width=20, opacity=0),
                              SMultiplicador_4, 
-                             ft.VerticalDivider(width=65, opacity=0), 
+                             ft.VerticalDivider(width=30, opacity=0), 
                              STolerancia, 
                              ft.VerticalDivider(width=35, opacity=0),
                              STCR]
@@ -197,18 +199,19 @@ def main(page: ft.Page):
             Salida_de_TCR.value = " "
 
             B_T.height = 120
+            B_1.height = 170
 
-            Colores.controls = [ft.VerticalDivider(width=60, opacity=0),
+            Colores.controls = [ft.VerticalDivider(width=70, opacity=0),
                                 B_1,
-                                ft.VerticalDivider(width=40, opacity=0),
+                                ft.VerticalDivider(width=45, opacity=0),
                                 B_2,
-                                ft.VerticalDivider(width=40, opacity=0),
+                                ft.VerticalDivider(width=30, opacity=0),
                                 B_3,
                                 ft.VerticalDivider(width=40, opacity=0),
                                 BM_4,
-                                ft.VerticalDivider(width=40, opacity=0),
+                                ft.VerticalDivider(width=70, opacity=0),
                                 B_T,
-                                ft.VerticalDivider(width=80, opacity=0),
+                                ft.VerticalDivider(width=40, opacity=0),
                                 B_TCR
                                 ]
 
