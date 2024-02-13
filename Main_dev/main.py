@@ -841,7 +841,7 @@ def main(page: ft.Page):
         else:
 
             Entrada_valor.error_text = "Introduzca un valor válido"
-            Entrada_Multiplicador.error_text = "Introduzca el valor válido"
+            Entrada_Multiplicador.error_text = "Introduzca un valor válido"
             Entrada_Tolerancia.error_text = "Introduzca un valor válido"
             Entrada_TCR.error_text = "Introduzca un valor válido"
 
@@ -850,6 +850,8 @@ def main(page: ft.Page):
     
 
     Switch_Introducir = ft.Switch(label="Introducir un valor", on_change=Intoudir_Valor_Manual)
+    Info_Función = ft.Tooltip(message="Introducir un valor manualmente para ver el código de colores",
+                              content=ft.IconButton(icon=ft.icons.QUESTION_MARK))
     Entrada_valor = ft.TextField(label="Valor", hint_text="Introduzca un valor", 
                                  max_length=3, 
                                  multiline=False, 
@@ -953,7 +955,7 @@ def main(page: ft.Page):
                               alignment=MainAxisAlignment.CENTER), 
                               border_radius=5),
 
-                              ft.Row([Switch_Introducir], alignment=MainAxisAlignment.CENTER),
+                              ft.Row([Switch_Introducir, Info_Función], alignment=MainAxisAlignment.CENTER),
                               Fila_Entrada, 
                               Fila_Boton_Int)
 
