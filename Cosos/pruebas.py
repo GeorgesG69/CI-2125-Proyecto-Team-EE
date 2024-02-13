@@ -740,6 +740,8 @@ def main(page: ft.Page):
             BM_4.bgcolor=C_Blanco[0]
             B_TCR.bgcolor=C_Blanco[0]
             B_T.bgcolor=C_Blanco[0]
+            B_T.border = ft.border.all(2, "#000000")
+            B_TCR.border = ft.border.all(2, "#000000")
 
             Salida_de_C1.value = " "
             Salida_de_C2.value = " "
@@ -824,8 +826,28 @@ def main(page: ft.Page):
             B_2.bgcolor = Lista_Colores[int(Entrada_valor.value[1])][0]
             B_3.bgcolor = Lista_Colores[int(Entrada_valor.value[2])][0]
             BM_4.bgcolor = Lista_Colores[int(Entrada_Multiplicador.value)][0]
-            B_T.bgcolor = Lista_Colores[int(Entrada_Tolerancia.value)][0]
-            B_TCR.bgcolor = Lista_Colores[int(Entrada_TCR.value)][0]
+
+            
+
+            if Entrada_Tolerancia.value == "0":
+
+                B_T.bgcolor = None
+                B_T.border = None
+
+            else:
+
+                B_T.bgcolor = Lista_Colores[int(Entrada_Tolerancia.value)][0]
+                B_T.border = ft.border.all(2, "#000000")
+
+            if Entrada_TCR.value == "9":
+
+                B_TCR.bgcolor = None
+                B_TCR.border = None
+
+            else:
+
+                B_TCR.bgcolor = Lista_Colores[int(Entrada_TCR.value)][0]
+                B_TCR.border = ft.border.all(2, "#000000")
 
             Salida_de_C1.value = f"{Entrada_valor.value[0]}"
             Salida_de_C2.value = f"{Entrada_valor.value[1]}"
@@ -858,7 +880,8 @@ def main(page: ft.Page):
                                  keyboard_type=ft.KeyboardType.NUMBER,
                                  input_filter=ft.NumbersOnlyInputFilter(), 
                                  text_align=ft.TextAlign.CENTER,
-                                 width=200)
+                                 width=200,
+                                 counter_text=" ")
     
     Entrada_Multiplicador = ft.Dropdown(label="Multiplicador",
                                         options=[
@@ -876,7 +899,7 @@ def main(page: ft.Page):
                                             ft.dropdown.Option(text="x0,1", key=10),
                                             ft.dropdown.Option(text="x0,01", key=11),
 
-                                        ], width=200)
+                                        ], width=200, counter_text=" ")
     
     Entrada_Tolerancia = ft.Dropdown(label="Tolerancia",
                                         options=[
@@ -894,7 +917,7 @@ def main(page: ft.Page):
                                             ft.dropdown.Option(text="± 10%", key=11),
                                             
 
-                                        ], width=200)
+                                        ], width=200, counter_text=" ")
     
     Entrada_TCR = ft.Dropdown(label="TCR",
                                         options=[
@@ -913,7 +936,7 @@ def main(page: ft.Page):
                                             
                                             
                                             
-                                        ], width=200)
+                                        ], width=200, counter_text=" ")
 
     Fila_Entrada = ft.Row(controls=[Entrada_valor,
                                      Entrada_Multiplicador,
