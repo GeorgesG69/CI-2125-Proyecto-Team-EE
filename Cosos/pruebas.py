@@ -1050,7 +1050,9 @@ def main(page: ft.Page):
                               Mostrar_Existencia], alignment=MainAxisAlignment.CENTER), 
                               
 
-                              ft.Row([Switch_Introducir, Info_Función, Info_Lect_Resistor], alignment=MainAxisAlignment.CENTER),
+                              ft.Row([Switch_Introducir, Info_Función, Info_Lect_Resistor], 
+                                     alignment=MainAxisAlignment.CENTER),
+                                     
                               Fila_Entrada, 
                               Fila_Boton_Int)
 
