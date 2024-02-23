@@ -5,6 +5,7 @@ from flet import *
 def main(page: ft.Page):
     page.title = "Calculadora de Resistores" # Título del borde de la ventana
     page.horizontal_alignment = CrossAxisAlignment.CENTER
+    page.scroll = ScrollMode.ALWAYS
 
     def Titulo():
 
@@ -233,11 +234,20 @@ def main(page: ft.Page):
     Salida_de_Tol = ft.Text(size=30)
     Salida_de_TCR = ft.Text(size=30)
 
+    Info_Existencia_Res = ft.Tooltip(content=ft.Text(value="Esperando...", size=13), message="Intriduzca un valor")
+
     def Cambiar_Color_1(e):
         
         B_1.bgcolor = e.control.content.key[0]
 
         Salida_de_C1.value = e.control.content.key[1]
+
+        if int(Salida_de_C1.value) > 6:
+            Info_Existencia_Res.content = ft.Text(value="No convencional.")
+            Info_Existencia_Res.message = "Este valor no se encuentra comercialmente"
+        else:
+            Info_Existencia_Res.content = ft.Text(value="Convencional.")
+            Info_Existencia_Res.message = "Este valor sí se encuentra comercialmente"
 
         page.update()
     
@@ -894,6 +904,7 @@ def main(page: ft.Page):
 ‣ Coloque la banda más alejada a su derecha.
 ‣ Lea las bandas de izquierda a derecha. """,
                               content=ft.TextButton(content=ft.Text(value="¿Cómo leer un resistor?", size=15)))
+    
     Entrada_valor = ft.TextField(label="Valor", hint_text="Formato: 000", 
                                  max_length=3, 
                                  multiline=False, 
@@ -983,10 +994,10 @@ def main(page: ft.Page):
     page.add(ft.Divider(opacity=0, height=1), 
              Menu, 
              ft.Divider(opacity=0, height=10), 
-             Imagen,
+             ft.Row(controls=[Imagen], scroll=ScrollMode.ALWAYS),
              ft.Divider(opacity=0, height=25),
              Selector,
-             ft.Container(content=ft.Row(controls=[
+             ft.Row(controls=[
                               
                               Resultado,                      
                               Salida_de_C1, 
@@ -994,10 +1005,11 @@ def main(page: ft.Page):
                               Salida_de_C3,
                               Salida_de_M,
                               Salida_de_Tol,
-                              Salida_de_TCR], 
+                              Salida_de_TCR,
+                              Info_Existencia_Res], 
                               
                               alignment=MainAxisAlignment.CENTER), 
-                              border_radius=5),
+                              
 
                               ft.Row([Switch_Introducir, Info_Función, Info_Lect_Resistor], alignment=MainAxisAlignment.CENTER),
                               Fila_Entrada, 
