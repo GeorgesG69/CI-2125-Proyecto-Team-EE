@@ -72,7 +72,7 @@ def main(page: ft.Page):
             Salida_de_C2.value = " "
             Salida_de_C3.value = " "
             Salida_de_M.value = " "
-            Salida_de_Tol.value = " "
+            Salida_de_Tol.value = "± 20%"
             Salida_de_TCR.value = " "
 
             B_1.height = 120
@@ -690,12 +690,14 @@ def main(page: ft.Page):
     Perol_Der = ft.canvas.Rect(410, -15, 120, 170, border_radius=20, paint=ft.Paint(color="#925219"))
     Contactos = ft.canvas.Rect(-50, 60, 630, 28, border_radius=0, paint=ft.Paint(color="#565656"))
 
-    Imagen = ft.Row(controls=[ft.Stack(controls=[      # Fila que contiene un "Stack", un elemento que sirve para poner cosas
-                                                       # encima de otras
-        ft.canvas.Canvas([Contactos, 
+    Img_R = ft.canvas.Canvas([Contactos, 
                           Perol_Izq, 
                           Perol_Cen, 
-                          Perol_Der], expand=False, scale=1.25),
+                          Perol_Der], expand=False, scale=1.25)
+
+    Imagen = ft.Row(controls=[ft.Stack(controls=[      # Fila que contiene un "Stack", un elemento que sirve para poner cosas
+                                                       # encima de otras
+        Img_R,
         Colores,
         
     ],)], height=174, width=677)
@@ -883,11 +885,15 @@ def main(page: ft.Page):
 
             page.update()
 
-    
 
     Switch_Introducir = ft.Switch(label="Introducir un valor", on_change=input_Valor_Manual)
     Info_Función = ft.Tooltip(message="Introducir un valor manualmente para ver el código de colores",
                               content=ft.IconButton(icon=ft.icons.QUESTION_MARK))
+    
+    Info_Lect_Resistor = ft.Tooltip(message="""‣ Observe el resistor. Ubique la banda más alejada.
+‣ Coloque la banda más alejada a su derecha.
+‣ Lea las bandas de izquierda a derecha. """,
+                              content=ft.TextButton(text="¿Cómo leer un resistor?"))
     Entrada_valor = ft.TextField(label="Valor", hint_text="Formato: 000", 
                                  max_length=3, 
                                  multiline=False, 
@@ -970,7 +976,8 @@ def main(page: ft.Page):
                                       alignment=MainAxisAlignment.CENTER, visible=False)
     
     
-    # Acá se añaden los elementos a la interfaz. 
+    # Acá se añaden los elementos a la interfaz.
+
 
     page.add(Titulo())
     page.add(ft.Divider(opacity=0, height=1), 
@@ -992,7 +999,7 @@ def main(page: ft.Page):
                               alignment=MainAxisAlignment.CENTER), 
                               border_radius=5),
 
-                              ft.Row([Switch_Introducir, Info_Función], alignment=MainAxisAlignment.CENTER),
+                              ft.Row([Switch_Introducir, Info_Función, Info_Lect_Resistor], alignment=MainAxisAlignment.CENTER),
                               Fila_Entrada, 
                               Fila_Boton_Int)
 
