@@ -76,6 +76,8 @@ def main(page: ft.Page):
             Salida_de_Tol.value = "± 20%"
             Salida_de_TCR.value = " "
 
+            Mostrar_Existencia.value = ""
+
             B_1.height = 120
             B_T.border = ft.border.all(2, "#000000")
             B_TCR.border = ft.border.all(2, "#000000")
@@ -113,6 +115,8 @@ def main(page: ft.Page):
             Salida_de_M.value = " "
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
+
+            Mostrar_Existencia.value = ""
 
             B_T.height = 120
             B_1.height = 120
@@ -156,6 +160,8 @@ def main(page: ft.Page):
             Salida_de_M.value = " "
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
+
+            Mostrar_Existencia.value = ""
 
             B_T.height = 170
             B_1.height = 170
@@ -205,6 +211,8 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
+            Mostrar_Existencia.value = ""
+
             B_T.height = 120
             B_1.height = 170
             B_T.border = ft.border.all(2, "#000000")
@@ -234,20 +242,11 @@ def main(page: ft.Page):
     Salida_de_Tol = ft.Text(size=30)
     Salida_de_TCR = ft.Text(size=30)
 
-    Info_Existencia_Res = ft.Tooltip(content=ft.Text(value="Esperando...", size=13), message="Intriduzca un valor")
-
     def Cambiar_Color_1(e):
         
         B_1.bgcolor = e.control.content.key[0]
 
         Salida_de_C1.value = e.control.content.key[1]
-
-        if int(Salida_de_C1.value) > 6:
-            Info_Existencia_Res.content = ft.Text(value="No convencional.")
-            Info_Existencia_Res.message = "Este valor no se encuentra comercialmente"
-        else:
-            Info_Existencia_Res.content = ft.Text(value="Convencional.")
-            Info_Existencia_Res.message = "Este valor sí se encuentra comercialmente"
 
         page.update()
     
@@ -256,7 +255,7 @@ def main(page: ft.Page):
         B_2.bgcolor = e.control.content.key[0]
 
         Salida_de_C2.value = e.control.content.key[2]
-             
+
         page.update()
 
     def Cambiar_Multiplicador_3(e):
@@ -294,6 +293,37 @@ def main(page: ft.Page):
 
         page.update()
 
+    def Check_Existencia(e):
+        
+        if Selector.controls[0].value == "1":
+            
+            if Salida_de_C1.value > "6" or Salida_de_C1.value == "5":
+
+                Mostrar_Existencia.value = "Valor no comercial"
+                Mostrar_Existencia.color = "red"
+
+                page.update()
+
+            elif (Salida_de_C2.value != "0"
+                and Salida_de_C2.value != "5"
+                and Salida_de_C2.value != "2"
+                and Salida_de_C2.value != "3"
+                and Salida_de_C2.value != "7"
+                and Salida_de_C2.value != "8"):
+
+                Mostrar_Existencia.value = "Valor no comercial"
+                Mostrar_Existencia.color = "red"
+
+                page.update()
+
+            else:
+                Mostrar_Existencia.value = "Valor comercial"
+                Mostrar_Existencia.color = "green"
+
+                page.update()
+        
+
+        
 
     Resultado = ft.Text(value="Resultado: ", size=30) # Título de los resultados
 
@@ -905,6 +935,11 @@ def main(page: ft.Page):
 ‣ Lea las bandas de izquierda a derecha. """,
                               content=ft.TextButton(content=ft.Text(value="¿Cómo leer un resistor?", size=15)))
     
+    Bt_Ver_Exist = ft.Tooltip(content=ft.TextButton(content=ft.Text(value="Verificar existencia", size=13), on_click=Check_Existencia), 
+                                     message="Intriduzca un valor")
+    
+    Mostrar_Existencia = ft.Text(size=18, italic=True, weight=ft.FontWeight.W_500)
+    
     Entrada_valor = ft.TextField(label="Valor", hint_text="Formato: 000", 
                                  max_length=3, 
                                  multiline=False, 
@@ -1006,9 +1041,11 @@ def main(page: ft.Page):
                               Salida_de_M,
                               Salida_de_Tol,
                               Salida_de_TCR,
-                              Info_Existencia_Res], 
+                              ], 
                               
-                              alignment=MainAxisAlignment.CENTER), 
+                              alignment=MainAxisAlignment.CENTER),
+                              ft.Row([Bt_Ver_Exist,
+                              Mostrar_Existencia], alignment=MainAxisAlignment.CENTER), 
                               
 
                               ft.Row([Switch_Introducir, Info_Función, Info_Lect_Resistor], alignment=MainAxisAlignment.CENTER),
