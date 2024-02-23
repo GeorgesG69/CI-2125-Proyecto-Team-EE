@@ -317,6 +317,7 @@ def main(page: ft.Page):
                 page.update()
 
             else:
+
                 Mostrar_Existencia.value = "Valor comercial"
                 Mostrar_Existencia.color = "green"
 
