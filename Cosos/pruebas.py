@@ -888,12 +888,12 @@ def main(page: ft.Page):
 
     Switch_Introducir = ft.Switch(label="Introducir un valor", on_change=input_Valor_Manual)
     Info_Función = ft.Tooltip(message="Introducir un valor manualmente para ver el código de colores",
-                              content=ft.IconButton(icon=ft.icons.QUESTION_MARK))
+                              content=ft.TextButton(content=ft.Text(value="?", size=20)))
     
     Info_Lect_Resistor = ft.Tooltip(message="""‣ Observe el resistor. Ubique la banda más alejada.
 ‣ Coloque la banda más alejada a su derecha.
 ‣ Lea las bandas de izquierda a derecha. """,
-                              content=ft.TextButton(text="¿Cómo leer un resistor?"))
+                              content=ft.TextButton(content=ft.Text(value="¿Cómo leer un resistor?", size=15)))
     Entrada_valor = ft.TextField(label="Valor", hint_text="Formato: 000", 
                                  max_length=3, 
                                  multiline=False, 
