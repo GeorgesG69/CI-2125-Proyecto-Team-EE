@@ -1011,10 +1011,12 @@ def main(page: ft.Page):
                                      
                                      alignment=MainAxisAlignment.CENTER, visible=False)
     
-    Fila_Boton_Int = ft.Row(controls=[ft.Container(content=ft.FloatingActionButton(content=ft.Text(value="Mostrar código", size=20), 
-                                                                                             bgcolor="transparent", 
-                                                                                             shape=RoundedRectangleBorder(radius=5),
-                                                                                             on_click=Calcular_Valor_Manual, width=400), 
+    Fila_Boton_Int = ft.Row(controls=[
+        ft.Container(content=ft.FloatingActionButton(content=ft.Text(value="Mostrar código", 
+                                                                    size=20), 
+                                                                    bgcolor="transparent", 
+                                                                    shape=RoundedRectangleBorder(radius=5),
+                                                                    on_click=Calcular_Valor_Manual, width=400), 
 
                                                              border=ft.border.all(2, "#ffffff"), 
                                                              border_radius=5)], 
