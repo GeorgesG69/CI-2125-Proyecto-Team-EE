@@ -304,12 +304,12 @@ def main(page: ft.Page):
 
                 page.update()
 
-            elif (Salida_de_C2.value != "0"
-                and Salida_de_C2.value != "5"
-                and Salida_de_C2.value != "2"
-                and Salida_de_C2.value != "3"
-                and Salida_de_C2.value != "7"
-                and Salida_de_C2.value != "8"):
+            elif (Salida_de_C2.value == "1"  # 1, 4, 6, 9
+                or Salida_de_C2.value == "4"
+                or Salida_de_C2.value == "6"
+                or Salida_de_C2.value == "9" 
+                ):
+                
 
                 Mostrar_Existencia.value = "Valor no comercial"
                 Mostrar_Existencia.color = "red"
@@ -323,7 +323,60 @@ def main(page: ft.Page):
 
                 page.update()
         
+        elif Selector.controls[0].value == "2":
 
+            if Salida_de_C1.value == "7" or Salida_de_C1.value == "9":
+
+                Mostrar_Existencia.value = "Valor no comercial"
+                Mostrar_Existencia.color = "red"
+
+                page.update()
+
+            elif (Salida_de_C2.value == "1" or Salida_de_C2.value == "4"):
+
+                Mostrar_Existencia.value = "Valor no comercial"
+                Mostrar_Existencia.color = "red"
+
+                page.update()
+
+            else:
+
+                Mostrar_Existencia.value = "Valor comercial"
+                Mostrar_Existencia.color = "green"
+
+                page.update()
+
+        elif Selector.controls[0].value == "3":
+
+            if Salida_de_Tol.value == "± 10%":
+                
+                Mostrar_Existencia.value = "Valor no comercial"
+                Mostrar_Existencia.color = "red"
+
+                page.update()
+
+            else:
+
+                Mostrar_Existencia.value = "Valor comercial"
+                Mostrar_Existencia.color = "green"
+
+                page.update()
+
+        elif Selector.controls[0].value == "4":
+
+            if Salida_de_Tol.value == "± 5%" or Salida_de_Tol.value == "± 10%":
+
+                Mostrar_Existencia.value = "Valor no comercial"
+                Mostrar_Existencia.color = "red"
+
+                page.update()
+
+            else:
+
+                Mostrar_Existencia.value = "Valor comercial"
+                Mostrar_Existencia.color = "green"
+
+                page.update()
         
 
     Resultado = ft.Text(value="Resultado: ", size=30) # Título de los resultados
@@ -802,6 +855,8 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
+            Mostrar_Existencia.value = ""
+
             B_T.height = 120
             B_1.height = 170
             B_T.border = ft.border.all(2, "#000000")
@@ -854,6 +909,8 @@ def main(page: ft.Page):
             Salida_de_M.value = " "
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
+
+            Mostrar_Existencia.value = ""
 
             Entrada_valor.value = ""
             Entrada_Multiplicador.value = None
@@ -936,8 +993,8 @@ def main(page: ft.Page):
 ‣ Lea las bandas de izquierda a derecha. """,
                               content=ft.TextButton(content=ft.Text(value="¿Cómo leer un resistor?", size=15)))
     
-    Bt_Ver_Exist = ft.Tooltip(content=ft.TextButton(content=ft.Text(value="Verificar existencia", size=13), on_click=Check_Existencia), 
-                                     message="Intriduzca un valor")
+    Bt_Ver_Exist = ft.Tooltip(content=ft.TextButton(content=ft.Text(value="Validar existencia", size=13), on_click=Check_Existencia), 
+                                     message="Verificar si el valor introducido es vendido.")
     
     Mostrar_Existencia = ft.Text(size=18, italic=True, weight=ft.FontWeight.W_500)
     
@@ -1030,11 +1087,11 @@ def main(page: ft.Page):
 
     page.add(Titulo())
     page.add(ft.Divider(opacity=0, height=1), 
-             Menu, 
+             ft.Row([Menu], alignment=MainAxisAlignment.CENTER, scroll=ScrollMode.ALWAYS), 
              ft.Divider(opacity=0, height=10), 
              ft.Row(controls=[Imagen], scroll=ScrollMode.ALWAYS),
              ft.Divider(opacity=0, height=25),
-             Selector,
+             ft.Row([Selector], alignment=MainAxisAlignment.CENTER, scroll=ScrollMode.ALWAYS),
              ft.Row(controls=[
                               
                               Resultado,                      
