@@ -5,6 +5,8 @@ from flet import *
 def main(page: ft.Page):
     page.title = "Calculadora de Resistores" # Título del borde de la ventana
     page.horizontal_alignment = CrossAxisAlignment.CENTER
+    page.scroll = ft.ScrollMode.ALWAYS
+    
 
     def Titulo():
 
@@ -20,18 +22,18 @@ def main(page: ft.Page):
 
     # Colores con sus códigos
 
-    C_Negro = ["#000000", "0", "0", "0", " Ω", " ", "250 ppm/k"]    # Negro
-    C_Marron = ["#883c00", "1", "1", "1", "×10 Ω", "± 1%", "100 ppm/k"]    # Marrón
-    C_Rojo = ["#ff0000", "2", "2", "2", "×100 Ω", "± 2%", "50 ppm/k"]      # Rojo
-    C_Naranja = ["#ff872e", "3", "3", "3", "kΩ", "± 0,05%", "15 ppm/k"]   # Naranja
-    C_Amarillo = ["#f3e800", "4", "4", "4", "×10 kΩ", "± 0,02%", "25 ppm/k"]  # Amarillo
-    C_Verde = ["#28a700", "5", "5", "5", "×100 kΩ", "± 0,5%", "20 ppm/k"]     # Verde
-    C_Azul = ["#009bb6", "6", "6", "6", "MΩ", "± 0,25%", "10 ppm/k"]      # Azul
-    C_Violeta = ["#8200e1", "7", "7", "7", "×10 MΩ", "± 0,1%", "5 ppm/k"]   # Violeta
-    C_Gris = ["#737373", "8", "8", "8", "×100 MΩ", "± 0,01%", "1 ppm/k"]      # Gris
-    C_Blanco = ["#ffffff", "9", "9", "9", " GΩ", " ", " "]    # Blanco
-    C_Dorado = ["#958000", " ", " ", " ", "×0,1 Ω", "± 5%", " "]    # Dorado
-    C_Plateado = ["#b4b4b4", " ", " ", " ", "×0,01 Ω", "± 10%", " "]  # Plateado
+    C_Negro = ["#000000", "0", "0", "0", " Ω", " ", "250 ppm/k"]            # Negro
+    C_Marron = ["#883c00", "1", "1", "1", "0 Ω", "± 1%", "100 ppm/k"]       # Marrón
+    C_Rojo = ["#ff0000", "2", "2", "2", "00 Ω", "± 2%", "50 ppm/k"]         # Rojo
+    C_Naranja = ["#ff872e", "3", "3", "3", " kΩ", "± 0,05%", "15 ppm/k"]    # Naranja
+    C_Amarillo = ["#f3e800", "4", "4", "4", "0 kΩ", "± 0,02%", "25 ppm/k"]  # Amarillo
+    C_Verde = ["#28a700", "5", "5", "5", "00 kΩ", "± 0,5%", "20 ppm/k"]     # Verde
+    C_Azul = ["#009bb6", "6", "6", "6", " MΩ", "± 0,25%", "10 ppm/k"]       # Azul
+    C_Violeta = ["#8200e1", "7", "7", "7", "0 MΩ", "± 0,1%", "5 ppm/k"]     # Violeta
+    C_Gris = ["#737373", "8", "8", "8", " 00 MΩ", "± 0,01%", "1 ppm/k"]     # Gris
+    C_Blanco = ["#ffffff", "9", "9", "9", " GΩ", " ", " "]                  # Blanco
+    C_Dorado = ["#958000", " ", " ", " ", "x0,1 Ω", "± 5%", " "]            # Dorado
+    C_Plateado = ["#b4b4b4", " ", " ", " ", "x0,01 Ω", "± 10%", " "]        # Plateado
 
     # Bandas
 
@@ -72,8 +74,10 @@ def main(page: ft.Page):
             Salida_de_C2.value = " "
             Salida_de_C3.value = " "
             Salida_de_M.value = " "
-            Salida_de_Tol.value = " "
+            Salida_de_Tol.value = "± 20%"
             Salida_de_TCR.value = " "
+
+            Mostrar_Existencia.value = ""
 
             B_1.height = 120
             B_T.border = ft.border.all(2, "#000000")
@@ -112,6 +116,8 @@ def main(page: ft.Page):
             Salida_de_M.value = " "
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
+
+            Mostrar_Existencia.value = ""
 
             B_T.height = 120
             B_1.height = 120
@@ -155,6 +161,8 @@ def main(page: ft.Page):
             Salida_de_M.value = " "
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
+
+            Mostrar_Existencia.value = ""
 
             B_T.height = 170
             B_1.height = 170
@@ -204,6 +212,8 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
+            Mostrar_Existencia.value = ""
+
             B_T.height = 120
             B_1.height = 170
             B_T.border = ft.border.all(2, "#000000")
@@ -246,7 +256,7 @@ def main(page: ft.Page):
         B_2.bgcolor = e.control.content.key[0]
 
         Salida_de_C2.value = e.control.content.key[2]
-             
+
         page.update()
 
     def Cambiar_Multiplicador_3(e):
@@ -284,6 +294,91 @@ def main(page: ft.Page):
 
         page.update()
 
+    def Check_Existencia(e):
+        
+        if Selector.controls[0].value == "1":
+            
+            if Salida_de_C1.value > "6" or Salida_de_C1.value == "5":
+
+                Mostrar_Existencia.value = "Valor no comercial"
+                Mostrar_Existencia.color = "red"
+
+                page.update()
+
+            elif (Salida_de_C2.value == "1"  # 1, 4, 6, 9
+                or Salida_de_C2.value == "4"
+                or Salida_de_C2.value == "6"
+                or Salida_de_C2.value == "9" 
+                ):
+                
+
+                Mostrar_Existencia.value = "Valor no comercial"
+                Mostrar_Existencia.color = "red"
+
+                page.update()
+
+            else:
+
+                Mostrar_Existencia.value = "Valor comercial"
+                Mostrar_Existencia.color = "green"
+
+                page.update()
+        
+        elif Selector.controls[0].value == "2":
+
+            if Salida_de_C1.value == "7" or Salida_de_C1.value == "9":
+
+                Mostrar_Existencia.value = "Valor no comercial"
+                Mostrar_Existencia.color = "red"
+
+                page.update()
+
+            elif (Salida_de_C2.value == "1" or Salida_de_C2.value == "4"):
+
+                Mostrar_Existencia.value = "Valor no comercial"
+                Mostrar_Existencia.color = "red"
+
+                page.update()
+
+            else:
+
+                Mostrar_Existencia.value = "Valor comercial"
+                Mostrar_Existencia.color = "green"
+
+                page.update()
+
+        elif Selector.controls[0].value == "3":
+
+            if Salida_de_Tol.value == "± 10%":
+                
+                Mostrar_Existencia.value = "Valor no comercial"
+                Mostrar_Existencia.color = "red"
+
+                page.update()
+
+            else:
+
+                Mostrar_Existencia.value = "Valor comercial"
+                Mostrar_Existencia.color = "green"
+
+                page.update()
+
+        elif Selector.controls[0].value == "4":
+
+            if Salida_de_Tol.value == "± 5%" or Salida_de_Tol.value == "± 10%":
+
+                Mostrar_Existencia.value = "Valor no comercial"
+                Mostrar_Existencia.color = "red"
+
+                page.update()
+
+            else:
+
+                Mostrar_Existencia.value = "Valor comercial"
+                Mostrar_Existencia.color = "green"
+
+                page.update()
+        
 
     Resultado = ft.Text(value="Resultado: ", size=30) # Título de los resultados
 
@@ -690,12 +785,14 @@ def main(page: ft.Page):
     Perol_Der = ft.canvas.Rect(410, -15, 120, 170, border_radius=20, paint=ft.Paint(color="#925219"))
     Contactos = ft.canvas.Rect(-50, 60, 630, 28, border_radius=0, paint=ft.Paint(color="#565656"))
 
-    Imagen = ft.Row(controls=[ft.Stack(controls=[      # Fila que contiene un "Stack", un elemento que sirve para poner cosas
-                                                       # encima de otras
-        ft.canvas.Canvas([Contactos, 
+    Img_R = ft.canvas.Canvas([Contactos, 
                           Perol_Izq, 
                           Perol_Cen, 
-                          Perol_Der], expand=False, scale=1.25),
+                          Perol_Der], expand=False, scale=1.25)
+
+    Imagen = ft.Row(controls=[ft.Stack(controls=[      # Fila que contiene un "Stack", un elemento que sirve para poner cosas
+                                                       # encima de otras
+        Img_R,
         Colores,
         
     ],)], height=174, width=677)
@@ -759,6 +856,8 @@ def main(page: ft.Page):
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
 
+            Mostrar_Existencia.value = ""
+
             B_T.height = 120
             B_1.height = 170
             B_T.border = ft.border.all(2, "#000000")
@@ -811,6 +910,8 @@ def main(page: ft.Page):
             Salida_de_M.value = " "
             Salida_de_Tol.value = " "
             Salida_de_TCR.value = " "
+
+            Mostrar_Existencia.value = ""
 
             Entrada_valor.value = ""
             Entrada_Multiplicador.value = None
@@ -883,11 +984,21 @@ def main(page: ft.Page):
 
             page.update()
 
-    
 
     Switch_Introducir = ft.Switch(label="Introducir un valor", on_change=input_Valor_Manual)
     Info_Función = ft.Tooltip(message="Introducir un valor manualmente para ver el código de colores",
-                              content=ft.IconButton(icon=ft.icons.QUESTION_MARK))
+                              content=ft.TextButton(content=ft.Text(value="?", size=20)))
+    
+    Info_Lect_Resistor = ft.Tooltip(message="""‣ Observe el resistor. Ubique la banda más alejada.
+‣ Coloque la banda más alejada a su derecha.
+‣ Lea las bandas de izquierda a derecha. """,
+                              content=ft.TextButton(content=ft.Text(value="¿Cómo leer un resistor?", size=15)))
+    
+    Bt_Ver_Exist = ft.Tooltip(content=ft.TextButton(content=ft.Text(value="Validar existencia", size=13), on_click=Check_Existencia), 
+                                     message="Verificar si el valor introducido es vendido.")
+    
+    Mostrar_Existencia = ft.Text(size=18, italic=True, weight=ft.FontWeight.W_500)
+    
     Entrada_valor = ft.TextField(label="Valor", hint_text="Formato: 000", 
                                  max_length=3, 
                                  multiline=False, 
@@ -901,17 +1012,17 @@ def main(page: ft.Page):
                                         options=[
 
                                             ft.dropdown.Option(text="Ω", key=0),
-                                            ft.dropdown.Option(text="×10 Ω", key=1),
-                                            ft.dropdown.Option(text="×100 Ω", key=2),
+                                            ft.dropdown.Option(text="0 Ω ", key=1),
+                                            ft.dropdown.Option(text="00 Ω ", key=2),
                                             ft.dropdown.Option(text="kΩ", key=3),
-                                            ft.dropdown.Option(text="×10 kΩ", key=4),
-                                            ft.dropdown.Option(text="×100 kΩ", key=5),
+                                            ft.dropdown.Option(text="0 kΩ", key=4),
+                                            ft.dropdown.Option(text="00 kΩ", key=5),
                                             ft.dropdown.Option(text="MΩ", key=6),
-                                            ft.dropdown.Option(text="×10 MΩ ", key=7),
-                                            ft.dropdown.Option(text="×100 MΩ", key=8),
+                                            ft.dropdown.Option(text="0 M ", key=7),
+                                            ft.dropdown.Option(text="00 MΩ", key=8),
                                             ft.dropdown.Option(text="GΩ", key=9),
-                                            ft.dropdown.Option(text="×0,1Ω", key=10),
-                                            ft.dropdown.Option(text="×0,01Ω", key=11),
+                                            ft.dropdown.Option(text="x0,1Ω", key=10),
+                                            ft.dropdown.Option(text="x0,01Ω", key=11),
 
                                         ], width=200, counter_text=" ")
     
@@ -959,10 +1070,12 @@ def main(page: ft.Page):
                                      
                                      alignment=MainAxisAlignment.CENTER, visible=False)
     
-    Fila_Boton_Int = ft.Row(controls=[ft.Container(content=ft.FloatingActionButton(content=ft.Text(value="Mostrar código", size=20), 
-                                                                                             bgcolor="transparent", 
-                                                                                             shape=RoundedRectangleBorder(radius=5),
-                                                                                             on_click=Calcular_Valor_Manual, width=400), 
+    Fila_Boton_Int = ft.Row(controls=[
+        ft.Container(content=ft.FloatingActionButton(content=ft.Text(value="Mostrar código", 
+                                                                    size=20), 
+                                                                    bgcolor="transparent", 
+                                                                    shape=RoundedRectangleBorder(radius=5),
+                                                                    on_click=Calcular_Valor_Manual, width=400), 
 
                                                              border=ft.border.all(2, "#ffffff"), 
                                                              border_radius=5)], 
@@ -970,16 +1083,17 @@ def main(page: ft.Page):
                                       alignment=MainAxisAlignment.CENTER, visible=False)
     
     
-    # Acá se añaden los elementos a la interfaz. 
+    # Acá se añaden los elementos a la interfaz.
+
 
     page.add(Titulo())
     page.add(ft.Divider(opacity=0, height=1), 
-             Menu, 
+             ft.Row([Menu], alignment=MainAxisAlignment.CENTER, scroll=ScrollMode.ALWAYS), 
              ft.Divider(opacity=0, height=10), 
-             Imagen,
+             ft.Row(controls=[Imagen], scroll=ScrollMode.ALWAYS),
              ft.Divider(opacity=0, height=25),
-             Selector,
-             ft.Container(content=ft.Row(controls=[
+             ft.Row([Selector], alignment=MainAxisAlignment.CENTER, scroll=ScrollMode.ALWAYS),
+             ft.Row(controls=[
                               
                               Resultado,                      
                               Salida_de_C1, 
@@ -987,12 +1101,17 @@ def main(page: ft.Page):
                               Salida_de_C3,
                               Salida_de_M,
                               Salida_de_Tol,
-                              Salida_de_TCR], 
+                              Salida_de_TCR,
+                              ], 
                               
-                              alignment=MainAxisAlignment.CENTER), 
-                              border_radius=5),
+                              alignment=MainAxisAlignment.CENTER),
+                              ft.Row([Bt_Ver_Exist,
+                              Mostrar_Existencia], alignment=MainAxisAlignment.CENTER), 
+                              
 
-                              ft.Row([Switch_Introducir, Info_Función], alignment=MainAxisAlignment.CENTER),
+                              ft.Row([Switch_Introducir, Info_Función, Info_Lect_Resistor], 
+                                     alignment=MainAxisAlignment.CENTER),
+
                               Fila_Entrada, 
                               Fila_Boton_Int)
 
