@@ -5,7 +5,8 @@ from flet import *
 def main(page: ft.Page):
     page.title = "Calculadora de Resistores" # Título del borde de la ventana
     page.horizontal_alignment = CrossAxisAlignment.CENTER
-    page.scroll = ScrollMode.ALWAYS
+    page.scroll = ft.ScrollMode.ALWAYS
+    
 
     def Titulo():
 
