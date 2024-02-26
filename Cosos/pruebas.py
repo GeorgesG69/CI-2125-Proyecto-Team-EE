@@ -7,10 +7,11 @@ def main(page: ft.Page):
     page.horizontal_alignment = CrossAxisAlignment.CENTER
     page.scroll = ft.ScrollMode.ALWAYS
     
+    
 
     def Titulo():
 
-        Title = ft.Text(value="Calculadora de Resistores", size=33, font_family="Times New Roman") # Título del centro de la apliacción
+        Title = ft.Text(value="Calculadora de Resistores", size=33, font_family="Bahnschrift") # Título del centro de la apliacción
 
         return ft.Row(controls=[Column(controls=[
 
@@ -22,18 +23,18 @@ def main(page: ft.Page):
 
     # Colores con sus códigos
 
-    C_Negro = ["#000000", "0", "0", "0", " Ω", " ", "250 ppm/k"]            # Negro
-    C_Marron = ["#883c00", "1", "1", "1", "0 Ω", "± 1%", "100 ppm/k"]       # Marrón
-    C_Rojo = ["#ff0000", "2", "2", "2", "00 Ω", "± 2%", "50 ppm/k"]         # Rojo
-    C_Naranja = ["#ff872e", "3", "3", "3", " kΩ", "± 0,05%", "15 ppm/k"]    # Naranja
-    C_Amarillo = ["#f3e800", "4", "4", "4", "0 kΩ", "± 0,02%", "25 ppm/k"]  # Amarillo
-    C_Verde = ["#28a700", "5", "5", "5", "00 kΩ", "± 0,5%", "20 ppm/k"]     # Verde
-    C_Azul = ["#009bb6", "6", "6", "6", " MΩ", "± 0,25%", "10 ppm/k"]       # Azul
-    C_Violeta = ["#8200e1", "7", "7", "7", "0 MΩ", "± 0,1%", "5 ppm/k"]     # Violeta
-    C_Gris = ["#737373", "8", "8", "8", " 00 MΩ", "± 0,01%", "1 ppm/k"]     # Gris
-    C_Blanco = ["#ffffff", "9", "9", "9", " GΩ", " ", " "]                  # Blanco
-    C_Dorado = ["#958000", " ", " ", " ", "x0,1 Ω", "± 5%", " "]            # Dorado
-    C_Plateado = ["#b4b4b4", " ", " ", " ", "x0,01 Ω", "± 10%", " "]        # Plateado
+    C_Negro = ["#000000", "0", "0", "0", "×1 Ω", " ", "250 ppm/k"]            # Negro
+    C_Marron = ["#883c00", "1", "1", "1", "×10 Ω", "± 1%", "100 ppm/k"]       # Marrón
+    C_Rojo = ["#ff0000", "2", "2", "2", "×100 Ω", "± 2%", "50 ppm/k"]         # Rojo
+    C_Naranja = ["#ff872e", "3", "3", "3", "×1 kΩ", "± 0,05%", "15 ppm/k"]    # Naranja
+    C_Amarillo = ["#f3e800", "4", "4", "4", "×10 kΩ", "± 0,02%", "25 ppm/k"]  # Amarillo
+    C_Verde = ["#28a700", "5", "5", "5", "×100 kΩ", "± 0,5%", "20 ppm/k"]     # Verde
+    C_Azul = ["#009bb6", "6", "6", "6", "×1 MΩ", "± 0,25%", "10 ppm/k"]       # Azul
+    C_Violeta = ["#8200e1", "7", "7", "7", "×10 MΩ", "± 0,1%", "5 ppm/k"]     # Violeta
+    C_Gris = ["#737373", "8", "8", "8", " ×100 MΩ", "± 0,01%", "1 ppm/k"]     # Gris
+    C_Blanco = ["#ffffff", "9", "9", "9", "×1 GΩ", " ", " "]                  # Blanco
+    C_Dorado = ["#958000", " ", " ", " ", "×0,1 Ω", "± 5%", " "]            # Dorado
+    C_Plateado = ["#b4b4b4", " ", " ", " ", "×0,01 Ω", "± 10%", " "]        # Plateado
 
     # Bandas
 
@@ -236,12 +237,12 @@ def main(page: ft.Page):
             page.update()
 
     
-    Salida_de_C1 = ft.Text(size=30, width=5)
-    Salida_de_C2 = ft.Text(size=30, width=5)
-    Salida_de_C3 = ft.Text(size=30, width=5)
-    Salida_de_M = ft.Text(size=30)
-    Salida_de_Tol = ft.Text(size=30)
-    Salida_de_TCR = ft.Text(size=30)
+    Salida_de_C1 = ft.Text(size=30, width=5, font_family="Bahnschrift")
+    Salida_de_C2 = ft.Text(size=30, width=5, font_family="Bahnschrift")
+    Salida_de_C3 = ft.Text(size=30, width=5, font_family="Bahnschrift")
+    Salida_de_M = ft.Text(size=30, font_family="Bahnschrift")
+    Salida_de_Tol = ft.Text(size=30, font_family="Bahnschrift")
+    Salida_de_TCR = ft.Text(size=30, font_family="Bahnschrift")
 
     def Cambiar_Color_1(e):
         
@@ -380,7 +381,7 @@ def main(page: ft.Page):
                 page.update()
         
 
-    Resultado = ft.Text(value="Resultado: ", size=30) # Título de los resultados
+    Resultado = ft.Text(value="Resultado: ", size=30, font_family="Bahnschrift") # Título de los resultados
 
     # Selectores del color para cada banda
     # Nota: Hay que buscar una forma de colocar colores en cada lista. Por ahora tienen emojis.
@@ -809,16 +810,16 @@ def main(page: ft.Page):
     Selector = ft.Row(controls=[ft.RadioGroup(content=ft.Row(controls=[
 
         ft.Radio(value="1"),
-        ft.Text(value=f"{TBandas}"),
+        ft.Text(value=f"{TBandas}", font_family="Bahnschrift"),
 
         ft.Radio(value="2"),
-        ft.Text(value=f"{CuBandas}"),
+        ft.Text(value=f"{CuBandas}", font_family="Bahnschrift"),
 
         ft.Radio(value="3"),
-        ft.Text(value=f"{CiBandas}"),
+        ft.Text(value=f"{CiBandas}", font_family="Bahnschrift"),
 
         ft.Radio(value="4"),
-        ft.Text(value=f"{SBandas}")])
+        ft.Text(value=f"{SBandas}", font_family="Bahnschrift")])
     
     
     , on_change=Bandas_Resistor)], alignment=MainAxisAlignment.CENTER)
@@ -987,42 +988,47 @@ def main(page: ft.Page):
 
     Switch_Introducir = ft.Switch(label="Introducir un valor", on_change=input_Valor_Manual)
     Info_Función = ft.Tooltip(message="Introducir un valor manualmente para ver el código de colores",
-                              content=ft.TextButton(content=ft.Text(value="?", size=20)))
+                              content=ft.TextButton(content=ft.Text(value="?", size=20, font_family="Bahnschrift")),
+                              text_style=ft.TextStyle(font_family="Bahnschrift", color="#000000"),
+                              bgcolor="#ffffff")
     
     Info_Lect_Resistor = ft.Tooltip(message="""‣ Observe el resistor. Ubique la banda más alejada.
 ‣ Coloque la banda más alejada a su derecha.
 ‣ Lea las bandas de izquierda a derecha. """,
-                              content=ft.TextButton(content=ft.Text(value="¿Cómo leer un resistor?", size=15)))
+                              content=ft.TextButton(content=ft.Text(value="¿Cómo leer un resistor?", size=15, font_family="Bahnschrift")),
+                              text_style=ft.TextStyle(font_family="Bahnschrift", color="#000000"),
+                              bgcolor="#ffffff")
     
-    Bt_Ver_Exist = ft.Tooltip(content=ft.TextButton(content=ft.Text(value="Validar existencia", size=13), on_click=Check_Existencia), 
-                                     message="Verificar si el valor introducido es vendido.")
+    Bt_Ver_Exist = ft.Tooltip(content=ft.TextButton(content=ft.Text(value="Validar existencia", size=15, font_family="Bahnschrift"), on_click=Check_Existencia), 
+                                     message="Verificar si el valor introducido es vendido.", text_style=ft.TextStyle(font_family="Bahnschrift", color="#000000"),
+                                     bgcolor="#ffffff")
     
     Mostrar_Existencia = ft.Text(size=18, italic=True, weight=ft.FontWeight.W_500)
     
-    Entrada_valor = ft.TextField(label="Valor", hint_text="Formato: 000", 
+    Entrada_valor = ft.TextField(label="Valor", hint_text="000", 
                                  max_length=3, 
                                  multiline=False, 
                                  keyboard_type=ft.KeyboardType.NUMBER,
                                  input_filter=ft.NumbersOnlyInputFilter(), 
                                  text_align=ft.TextAlign.CENTER,
                                  width=200,
-                                 )
+                                 text_style=ft.TextStyle(font_family="Bahnschrift"))
     
     Entrada_Multiplicador = ft.Dropdown(label="Multiplicador",
                                         options=[
 
-                                            ft.dropdown.Option(text="Ω", key=0),
-                                            ft.dropdown.Option(text="0 Ω ", key=1),
-                                            ft.dropdown.Option(text="00 Ω ", key=2),
-                                            ft.dropdown.Option(text="kΩ", key=3),
-                                            ft.dropdown.Option(text="0 kΩ", key=4),
-                                            ft.dropdown.Option(text="00 kΩ", key=5),
-                                            ft.dropdown.Option(text="MΩ", key=6),
-                                            ft.dropdown.Option(text="0 M ", key=7),
-                                            ft.dropdown.Option(text="00 MΩ", key=8),
-                                            ft.dropdown.Option(text="GΩ", key=9),
-                                            ft.dropdown.Option(text="x0,1Ω", key=10),
-                                            ft.dropdown.Option(text="x0,01Ω", key=11),
+                                            ft.dropdown.Option(text="×1Ω", key=0),
+                                            ft.dropdown.Option(text="×10 Ω ", key=1),
+                                            ft.dropdown.Option(text="×100 Ω ", key=2),
+                                            ft.dropdown.Option(text="×1 kΩ", key=3),
+                                            ft.dropdown.Option(text="×10 kΩ", key=4),
+                                            ft.dropdown.Option(text="×100 kΩ", key=5),
+                                            ft.dropdown.Option(text="×1 MΩ", key=6),
+                                            ft.dropdown.Option(text="×10 M ", key=7),
+                                            ft.dropdown.Option(text="×100 MΩ", key=8),
+                                            ft.dropdown.Option(text="×1 GΩ", key=9),
+                                            ft.dropdown.Option(text="×0,1Ω", key=10),
+                                            ft.dropdown.Option(text="×0,01Ω", key=11),
 
                                         ], width=200, counter_text=" ")
     
@@ -1072,7 +1078,7 @@ def main(page: ft.Page):
     
     Fila_Boton_Int = ft.Row(controls=[
         ft.Container(content=ft.FloatingActionButton(content=ft.Text(value="Mostrar código", 
-                                                                    size=20), 
+                                                                    size=20, font_family="Bahnschrift"), 
                                                                     bgcolor="transparent", 
                                                                     shape=RoundedRectangleBorder(radius=5),
                                                                     on_click=Calcular_Valor_Manual, width=400), 
@@ -1105,11 +1111,11 @@ def main(page: ft.Page):
                               ], 
                               
                               alignment=MainAxisAlignment.CENTER),
-                              ft.Row([Bt_Ver_Exist,
-                              Mostrar_Existencia], alignment=MainAxisAlignment.CENTER), 
+             ft.Row([Bt_Ver_Exist,
+                    Mostrar_Existencia], alignment=MainAxisAlignment.CENTER), 
                               
 
-                              ft.Row([Switch_Introducir, Info_Función, Info_Lect_Resistor], 
+             ft.Row([Switch_Introducir, Info_Función, Info_Lect_Resistor], 
                                      alignment=MainAxisAlignment.CENTER),
 
                               Fila_Entrada, 
