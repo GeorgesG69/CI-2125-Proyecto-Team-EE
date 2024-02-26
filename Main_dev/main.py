@@ -1104,15 +1104,17 @@ def main(page: ft.Page):
                               Salida_de_TCR,
                               ], 
                               
-                              alignment=MainAxisAlignment.CENTER),
-                              ft.Row([Bt_Ver_Exist,
-                              Mostrar_Existencia], alignment=MainAxisAlignment.CENTER), 
+                    alignment=MainAxisAlignment.CENTER),
+
+             ft.Row([Bt_Ver_Exist,
+                    Mostrar_Existencia], 
+                alignment=MainAxisAlignment.CENTER), 
                               
 
-                              ft.Row([Switch_Introducir, Info_Función, Info_Lect_Resistor], 
-                                     alignment=MainAxisAlignment.CENTER),
+             ft.Row([Switch_Introducir, Info_Función, Info_Lect_Resistor], 
+                alignment=MainAxisAlignment.CENTER),
 
-                              Fila_Entrada, 
-                              Fila_Boton_Int)
+             Fila_Entrada, 
+             Fila_Boton_Int)
 
 ft.app(target=main, view=ft.AppView.WEB_BROWSER) # Arranque de la aplicación
