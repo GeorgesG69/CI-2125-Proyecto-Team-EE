@@ -1003,7 +1003,7 @@ def main(page: ft.Page):
                                      message="Verificar si el valor introducido es vendido.", text_style=ft.TextStyle(font_family="Bahnschrift", color="#000000"),
                                      bgcolor="#ffffff")
     
-    Mostrar_Existencia = ft.Text(size=18, italic=True, weight=ft.FontWeight.W_500)
+    Mostrar_Existencia = ft.Text(size=18, italic=False, weight=ft.FontWeight.W_500, font_family="Bahnschrift")
     
     Entrada_valor = ft.TextField(label="Valor", hint_text="000", 
                                  max_length=3, 
